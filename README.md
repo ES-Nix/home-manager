@@ -45,3 +45,21 @@ cat << 'EOF' >> ~/.config/nixpkgs/home.nix
 EOF
 ```
 
+```bash
+nix \
+flake \
+show \
+github:nix-community/home-manager \
+--no-write-lock-file
+```
+
+```bash
+nix \
+profile \
+install \
+nixpkgs#home-manager
+```
+
+`home-manager build`
+
+
