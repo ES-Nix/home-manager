@@ -27,19 +27,37 @@ cat << 'EOF' >> ~/.config/nixpkgs/home.nix
 
 {
   home.packages = [
-    pkgs.git
-    pkgs.hello
+    pkgs.htop
+    pkgs.fortune
   ];
 
-  programs.git = {
+  programs.emacs = {
     enable = true;
-    userName  = "my_git_username";
-    useEmail = "my_git_username@gmail.com";
+    extraPackages = epkgs: [
+      epkgs.nix-mode
+      epkgs.magit
+    ];
+  };
+
+  programs.firefox = {
+    enable = true;
+    profiles = {
+      myprofile = {
+        settings = {
+          "general.smoothScroll" = false;
+        };
+      };
+    };
+  };
+
+  services.gpg-agent = {
+    enable = true;
+    defaultCacheTtl = 1800;
+    enableSshSupport = true;
   };
 
   programs.home-manager = {
     enable = true;
-    path = "";
   };
 }
 EOF
@@ -62,4 +80,8 @@ nixpkgs#home-manager
 
 `home-manager build`
 
+## References
 
+- [Home Manager](https://nixos.wiki/wiki/Home_Manager)
+- https://rycee.gitlab.io/home-manager/options.html
+- [Example: Use nix-flakes with home-manager on non-nixos systems](https://discourse.nixos.org/t/example-use-nix-flakes-with-home-manager-on-non-nixos-systems/10185/8)
