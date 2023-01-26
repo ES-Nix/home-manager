@@ -32,10 +32,18 @@ cat << 'EOF' >> ~/.config/nixpkgs/home.nix
   home.username = "vagrant";
   home.homeDirectory = "/home/vagrant";
   
-  home.packages = [
-    pkgs.htop
-    pkgs.fortune
+  home.packages = with pkgs; [
+    htop
+    fortune
   ];
+
+  programs.direnv = {
+    enable = true;
+    nix-direnv = {
+      enable = true;
+      enableFlakes = true;
+    };
+  };
 
   programs.emacs = {
     enable = true;
@@ -101,7 +109,7 @@ cat << 'EOF' >> ~/.config/nixpkgs/flake.nix
             };
             programs.home-manager.enable = true;
           }
-#           ./home.nix
+           ./home.nix
         ];
 
         # Optionally use extraSpecialArgs
@@ -115,6 +123,8 @@ cd ~/.config/nixpkgs/
 
 git init
 git add .
+
+$(nix build --print-out-paths .#homeConfigurations.vagrant.activationPackage)/activate
 ```
 
 
