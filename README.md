@@ -29,8 +29,8 @@ cat << 'EOF' >> ~/.config/nixpkgs/home.nix
 
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
-  home.username = "vagrant";
-  home.homeDirectory = "/home/vagrant";
+  # home.username = "vagrant";
+  # home.homeDirectory = "/home/vagrant";
   
   home.packages = with pkgs; [
     htop
@@ -41,28 +41,27 @@ cat << 'EOF' >> ~/.config/nixpkgs/home.nix
     enable = true;
     nix-direnv = {
       enable = true;
-      enableFlakes = true;
     };
   };
 
-  programs.emacs = {
-    enable = true;
-    extraPackages = epkgs: [
-      epkgs.nix-mode
-      epkgs.magit
-    ];
-  };
+  # programs.emacs = {
+  #   enable = true;
+  #   extraPackages = epkgs: [
+  #     epkgs.nix-mode
+  #     epkgs.magit
+  #  ];
+  # };
 
-  programs.firefox = {
-    enable = true;
-    profiles = {
-      myprofile = {
-        settings = {
-          "general.smoothScroll" = false;
-        };
-      };
-    };
-  };
+  # programs.firefox = {
+  #   enable = true;
+  #   profiles = {
+  #      myprofile = {
+  #      settings = {
+  #        "general.smoothScroll" = false;
+  #      };
+  #     };
+  #   };
+  # };
 
   services.gpg-agent = {
     enable = true;
@@ -75,13 +74,11 @@ cat << 'EOF' >> ~/.config/nixpkgs/home.nix
   };
 }
 EOF
-```
 
 
-```bash
 cat << 'EOF' >> ~/.config/nixpkgs/flake.nix
 {
-  description = "Home Manager configuration of Ubuntu";
+  description = "Home Manager configuration of Ubuntu for vagrant user";
 
   inputs = {
     # Specify the source of Home Manager and Nixpkgs
