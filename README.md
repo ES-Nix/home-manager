@@ -29,8 +29,8 @@ cat << 'EOF' >> ~/.config/nixpkgs/home.nix
 
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
-  home.username = "ubuntu";
-  home.homeDirectory = "/home/ubuntu";
+  home.username = "vagrant";
+  home.homeDirectory = "/home/vagrant";
   
   home.packages = [
     pkgs.htop
@@ -82,21 +82,27 @@ cat << 'EOF' >> ~/.config/nixpkgs/flake.nix
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { home-manager, ... }:
+  outputs = { nixpkgs, home-manager, ... }:
     let
       system = "x86_64-linux";
-      username = "ubuntu";
+      username = "vagrant";
     in {
       homeConfigurations.${username} = home-manager.lib.homeManagerConfiguration {
-        # Specify the path to your home configuration here
-        configuration = import ./home.nix;
+        pkgs = nixpkgs.legacyPackages.${system};
 
-        inherit system username;
-        homeDirectory = "/home/${username}";
-        # Update the state version as needed.
-        # See the changelog here:
-        # https://nix-community.github.io/home-manager/release-notes.html#sec-release-21.05
-        stateVersion = "21.11";
+        # defaultPackage.${system} = home-manager.defaultPackage.${system};
+       
+        modules = [
+          {
+            home = {
+              inherit username;
+              homeDirectory = "/Users/${username}";
+              stateVersion = "22.11";
+            };
+            programs.home-manager.enable = true;
+          }
+#           ./home.nix
+        ];
 
         # Optionally use extraSpecialArgs
         # to pass through arguments to home.nix
