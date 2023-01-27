@@ -50,9 +50,9 @@ cat << 'EOF' >> ~/.config/nixpkgs/home.nix
       enable = true;
       package = pkgs.vscode;
       extensions = with pkgs.vscode-extensions; [
-          bbenoist.Nix
+          bbenoist.nix
           yzhang.markdown-all-in-one
-          gitHub.vscode-pull-request-github
+          github.vscode-pull-request-github
           ms-vscode.makefile-tools
           ms-vsliveshare.vsliveshare
           streetsidesoftware.code-spell-checker
