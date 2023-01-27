@@ -46,6 +46,34 @@ cat << 'EOF' >> ~/.config/nixpkgs/home.nix
     };
   };
 
+  programs.vscode = {
+      enable = true;
+      package = pkgs.vscode;
+      extensions = with pkgs.vscode-extensions; [
+          bbenoist.Nix
+          yzhang.markdown-all-in-one
+          gitHub.vscode-pull-request-github
+          ms-vscode.makefile-tools
+          ms-vsliveshare.vsliveshare
+          streetsidesoftware.code-spell-checker
+          eamodio.gitlens
+          dart-code.dart-code
+          dart-code.flutter
+          dbaeumer.vscode-eslint
+          prisma.prisma
+          yzhang.markdown-all-in-one
+          redhat.vscode-yaml
+          firefox-devtools.vscode-firefox-debug
+          apollographql.vscode-apollo
+          bierner.markdown-mermaid
+          bradlc.vscode-tailwindcss
+          donjayamanne.githistory
+      ];
+      userSettings = {
+          "terminal.integrated.fontFamily" = "Hack";
+      };
+  };
+
   # programs.emacs = {
   #   enable = true;
   #   extraPackages = epkgs: [
