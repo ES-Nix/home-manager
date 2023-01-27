@@ -35,6 +35,8 @@ cat << 'EOF' >> ~/.config/nixpkgs/home.nix
   home.packages = with pkgs; [
     htop
     fortune
+    git
+    podman
   ];
 
   programs.direnv = {
