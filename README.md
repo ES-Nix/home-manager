@@ -151,7 +151,7 @@ cd ~/.config/nixpkgs/
 git init
 git add .
 
-$(nix build --print-out-paths .#homeConfigurations.vagrant.activationPackage)/activate
+$(nix build --impure --print-out-paths .#homeConfigurations.vagrant.activationPackage)/activate
 ```
 
 
