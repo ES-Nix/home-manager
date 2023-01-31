@@ -37,8 +37,42 @@ cat << 'EOF' >> ~/.config/nixpkgs/home.nix
     fortune
     git
     vlc
+
     # podman
+    # runc
+    # skopeo
+    # conmon
+    # slirp4netns
   ];
+
+  # https://beb.ninja/post/installing-podman/
+  #  home.file."registries.conf" = {
+  #    target = ".config/containers/registries.conf";
+  #    text = ''
+  #      [registries.search]
+  #      registries = ['docker.io', 'registry.gitlab.com']
+  #    '';
+  #  };
+  #  home.file."policy.json" = {
+  #    target = ".config/containers/policy.json";
+  #    text = ''
+  #      {
+  #          "default": [
+  #              {
+  #                  "type": "insecureAcceptAnything"
+  #              }
+  #          ],
+  #          "transports":
+  #              {
+  #                  "docker-daemon":
+  #                      {
+  #                          "": [{"type":"insecureAcceptAnything"}]
+  #                      }
+  #              }
+  #      }
+  #    '';
+  #  };
+  
 
   programs.direnv = {
     enable = true;
@@ -47,9 +81,14 @@ cat << 'EOF' >> ~/.config/nixpkgs/home.nix
     };
   };
 
-#  programs.vscode = {
-#      enable = true;
-#      package = pkgs.vscode;
+  programs.vscode = {
+      enable = true;
+      package = pkgs.vscode;
+      # TODO:
+      # https://www.reddit.com/r/NixOS/comments/ybb08b/if_i_manage_visual_studio_code_packages_via_home/
+      # extensions.autoCheckUpdates = false;
+      # extensions.autoUpdate = false;
+
 #      extensions = with pkgs.vscode-extensions; [
 #          bbenoist.nix
 #          yzhang.markdown-all-in-one
@@ -70,10 +109,10 @@ cat << 'EOF' >> ~/.config/nixpkgs/home.nix
 #          bradlc.vscode-tailwindcss
 #          donjayamanne.githistory
 #      ];
-#      userSettings = {
-#          "terminal.integrated.fontFamily" = "Hack";
-#      };
-#  };
+      userSettings = {
+          "terminal.integrated.fontFamily" = "Hack";
+      };
+  };
 
   # programs.emacs = {
   #   enable = true;
