@@ -33,10 +33,25 @@ cat << 'EOF' >> ~/.config/nixpkgs/home.nix
   # home.homeDirectory = "/home/vagrant";
   
   home.packages = with pkgs; [
-    htop
-    fortune
+    # Example packages
+    discord
+    obsidian
+    spotify
+    tdesktop
+    kolourpaint
+    gitkraken
+    btop
+    vscodium
+
+    # btop
+    # htop
     git
-    vlc
+    openssh
+    # vlc
+    
+    # jetbrains.pycharm-community
+    # gitkraken
+    # peek
 
     # podman
     # runc
@@ -81,9 +96,9 @@ cat << 'EOF' >> ~/.config/nixpkgs/home.nix
     };
   };
 
-  programs.vscode = {
-      enable = true;
-      package = pkgs.vscode;
+#  programs.vscode = {
+#      enable = true;
+#      package = pkgs.vscode;
       # TODO:
       # https://www.reddit.com/r/NixOS/comments/ybb08b/if_i_manage_visual_studio_code_packages_via_home/
       # extensions.autoCheckUpdates = false;
@@ -109,10 +124,10 @@ cat << 'EOF' >> ~/.config/nixpkgs/home.nix
 #          bradlc.vscode-tailwindcss
 #          donjayamanne.githistory
 #      ];
-      userSettings = {
-          "terminal.integrated.fontFamily" = "Hack";
-      };
-  };
+#      userSettings = {
+#          "terminal.integrated.fontFamily" = "Hack";
+#      };
+#  };
 
   # programs.emacs = {
   #   enable = true;
@@ -160,7 +175,8 @@ cat << 'EOF' >> ~/.config/nixpkgs/flake.nix
   outputs = { nixpkgs, home-manager, ... }:
     let
       system = "x86_64-linux";
-      username = "vagrant";
+      # username = "vagrant";
+      username = "ubuntu";
     in {
       homeConfigurations.${username} = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.${system};
