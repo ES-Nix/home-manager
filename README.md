@@ -34,14 +34,14 @@ cat << 'EOF' >> ~/.config/nixpkgs/home.nix
   
   home.packages = with pkgs; [
     # Example packages
-    discord
-    obsidian
-    spotify
-    tdesktop
-    kolourpaint
-    gitkraken
-    btop
-    vscodium
+    #discord
+    #obsidian
+    #spotify
+    #tdesktop
+    #kolourpaint
+    #gitkraken
+    #btop
+    #vscodium
 
     # btop
     # htop
@@ -53,40 +53,40 @@ cat << 'EOF' >> ~/.config/nixpkgs/home.nix
     # gitkraken
     # peek
 
-    # podman
-    # runc
-    # skopeo
-    # conmon
-    # slirp4netns
+    podman
+    runc
+    skopeo
+    conmon
+    slirp4netns
   ];
 
   # https://beb.ninja/post/installing-podman/
-  #  home.file."registries.conf" = {
-  #    target = ".config/containers/registries.conf";
-  #    text = ''
-  #      [registries.search]
-  #      registries = ['docker.io', 'registry.gitlab.com']
-  #    '';
-  #  };
-  #  home.file."policy.json" = {
-  #    target = ".config/containers/policy.json";
-  #    text = ''
-  #      {
-  #          "default": [
-  #              {
-  #                  "type": "insecureAcceptAnything"
-  #              }
-  #          ],
-  #          "transports":
-  #              {
-  #                  "docker-daemon":
-  #                      {
-  #                          "": [{"type":"insecureAcceptAnything"}]
-  #                      }
-  #              }
-  #      }
-  #    '';
-  #  };
+  home.file."registries.conf" = {
+    target = ".config/containers/registries.conf";
+    text = ''
+      [registries.search]
+      registries = ['docker.io', 'registry.gitlab.com']
+    '';
+  };
+  home.file."policy.json" = {
+    target = ".config/containers/policy.json";
+    text = ''
+      {
+          "default": [
+              {
+                 "type": "insecureAcceptAnything"
+              }
+          ],
+          "transports":
+            {
+               "docker-daemon":
+                  {
+                     "": [{"type":"insecureAcceptAnything"}]
+                  }
+            }
+      }
+    '';
+  };
   
 
   programs.direnv = {
