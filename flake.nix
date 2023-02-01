@@ -30,7 +30,19 @@
               stateVersion = "22.11";
 
               activation.test = home-manager.lib.hm.dag.entryAfter ["writeBoundary"] ''
-                echo hello world
+                # set -x
+                echo "Started activation.test, it may call sudo on first time"
+
+                # Hack, but work relly well
+                export PATH=/usr/bin:$PATH
+
+                if [ ! $(stat -c '%a' "$HOME"/.nix-profile/bin/newuidmap) -eq 4511 ]; then
+                  sudo chmod -v 4511 "$HOME"/.nix-profile/bin/newuidmap
+                fi
+
+                if [ ! $(stat -c '%a' "$HOME"/.nix-profile/bin/newgidmap) -eq 4511 ]; then
+                  sudo chmod -v 4511 "$HOME"/.nix-profile/bin/newgidmap
+                fi
               '';
             };
             programs.home-manager.enable = true;

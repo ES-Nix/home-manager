@@ -66,6 +66,11 @@ sudo chmod -v 4511 "$HOME"/.nix-profile/bin/new{u,g}idmap
 podman ps
 ```
 
+
+```bash
+home-manager switch
+```
+
 ### Digging
 
 ```bash
