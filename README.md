@@ -78,3 +78,11 @@ podman ps
 - [Wrappers vs. Dotfiles](https://nixos.wiki/wiki/Wrappers_vs._Dotfiles)
 - https://github.com/nix-community/home-manager#usage
 - https://nixos.wiki/wiki/Home_Manager
+- https://discourse.nixos.org/t/how-to-use-nixos-systemd-user-service-definiton-in-non-nixos-system-via-home-manager/19042
+- https://www.reddit.com/r/NixOS/comments/qeien0/homemanager_and_configurationnix/
+- https://news.ycombinator.com/item?id=28886435
+
+### History
+
+- https://github.com/divnix/digga/issues/83#issuecomment-758300955
+- https://github.com/divnix/digga/pull/93#issuecomment-761377665

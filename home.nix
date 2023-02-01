@@ -34,7 +34,7 @@
 
     coreutils
     binutils
-    utilslinux
+    utillinux
     glibc.bin
     file
     findutils
