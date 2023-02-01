@@ -29,7 +29,7 @@
               homeDirectory = "/Users/${username}";
               stateVersion = "22.11";
 
-              activation.test = lib.hm.dag.entryAfter ["writeBoundary"] ''
+              activation.test = home-manager.lib.hm.dag.entryAfter ["writeBoundary"] ''
                 echo hello world
               '';
             };
