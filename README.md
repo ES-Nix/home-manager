@@ -21,6 +21,73 @@ The `~/.config/nixpkgs/home.nix`
 
 
 ```bash
+NIX_RELEASE_VERSION=2.10.2 \
+&& curl -L https://releases.nixos.org/nix/nix-"${NIX_RELEASE_VERSION}"/install | sh -s -- --daemon \
+&& echo "Exiting the current shell session!" \
+&& exit 0
+```
+
+
+```bash
+nix \
+profile \
+install \
+nixpkgs#busybox \
+--option \
+experimental-features 'nix-command flakes'
+
+
+busybox test -d ~/.config/nix || busybox mkdir -p -m 0755 ~/.config/nix \
+&& busybox grep 'nixos' ~/.config/nix/nix.conf 1> /dev/null 2> /dev/null || busybox echo 'system-features = benchmark big-parallel kvm nixos-test' >> ~/.config/nix/nix.conf \
+&& busybox grep 'flakes' ~/.config/nix/nix.conf 1> /dev/null 2> /dev/null || busybox echo 'experimental-features = nix-command flakes' >> ~/.config/nix/nix.conf \
+&& busybox grep 'trace' ~/.config/nix/nix.conf 1> /dev/null 2> /dev/null || busybox echo 'show-trace = true' >> ~/.config/nix/nix.conf \
+&& busybox test -d ~/.config/nixpkgs || busybox mkdir -p -m 0755 ~/.config/nixpkgs \
+&& busybox grep 'allowUnfree' ~/.config/nixpkgs/config.nix 1> /dev/null 2> /dev/null || busybox echo '{ allowUnfree = true; android_sdk.accept_license = true; }' >> ~/.config/nixpkgs/config.nix
+
+
+echo 'PATH="$HOME"/.nix-profile/bin:"$PATH"' >> ~/."$(busybox basename $SHELL)"rc && . ~/."$( busybox basename $SHELL)"rc
+
+nix \
+profile \
+remove \
+"$(nix eval --raw nixpkgs#busybox)"
+
+nix store gc --verbose
+systemctl status nix-daemon
+nix flake --version
+
+
+
+DESTINATION_FOLDER="$HOME/.config/nixpkgs"
+rm -fr "${DESTINATION_FOLDER}"
+mkdir -p "${DESTINATION_FOLDER}"
+cd "${DESTINATION_FOLDER}"
+nix flake clone github:ES-Nix/home-manager --dest "${DESTINATION_FOLDER}"
+
+$(nix build --impure --print-out-paths "${DESTINATION_FOLDER}"#homeConfigurations.$USER.activationPackage)/activate
+
+```
+
+
+```bash
+mkdir -pv "$HOME"/.local/bin
+cp "$HOME"/.nix-profile/bin/new{u,g}idmap "$HOME"/.local/bin
+chmod -v 4700 "$HOME"/.local/bin/new{u,g}idmap
+export PATH="$HOME"/.local/bin:$PATH
+
+podman ps
+```
+
+
+```bash
+home-manager build --flake ~/.config/nixpkgs
+```
+
+```bash
+direnv allow 
+```
+
+```bash
 mkdir -p ~/.config/nixpkgs
 cat << 'EOF' >> ~/.config/nixpkgs/home.nix
 { pkgs, ... }:

@@ -8,25 +8,26 @@
   # home.homeDirectory = "/home/vagrant";
 
   home.packages = with pkgs; [
-    # Example packages
+    # Graphical packages
     #discord
     #obsidian
     #spotify
     #tdesktop
     #kolourpaint
     #gitkraken
-    #btop
     #vscodium
+    #dbeaver
+    #peek
+    #vlc
+    #jetbrains.pycharm-community
+    #gitkraken
+    #xorg.xclock
 
     # btop
     # htop
     git
     openssh
-    # vlc
 
-    # jetbrains.pycharm-community
-    # gitkraken
-    # peek
 
     podman
     runc
@@ -137,10 +138,10 @@
   # programs.firefox = {
   #   enable = true;
   #   profiles = {
-  #      myprofile = {
-  #      settings = {
-  #        "general.smoothScroll" = false;
-  #      };
+  #     myprofile = {
+  #       settings = {
+  #         "general.smoothScroll" = false;
+  #       };
   #     };
   #   };
   # };
