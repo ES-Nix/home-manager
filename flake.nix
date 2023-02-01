@@ -30,10 +30,6 @@
               stateVersion = "22.11";
             };
             programs.home-manager.enable = true;
-
-            myActivationAction = home-manager.lib.hm.dag.entryAfter ["writeBoundary"] ''
-              echo $HOME
-            '';
           }
 
           ./home.nix
