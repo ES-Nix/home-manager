@@ -23,8 +23,9 @@
     #gitkraken
     #xorg.xclock
 
-    # btop
-    # htop
+    btop
+    htop
+    asciinema
     git
     openssh
 
