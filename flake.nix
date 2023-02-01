@@ -28,6 +28,10 @@
               inherit username;
               homeDirectory = "/Users/${username}";
               stateVersion = "22.11";
+
+              activation.test = lib.hm.dag.entryAfter ["writeBoundary"] ''
+                echo hello world
+              '';
             };
             programs.home-manager.enable = true;
           }
