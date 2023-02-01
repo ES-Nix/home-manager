@@ -16,7 +16,7 @@
       pkgs = nixpkgs.legacyPackages.${system};
     in {
       homeConfigurations.${username} = home-manager.lib.homeManagerConfiguration {
-        pkgs = pkgs; # nixpkgs.legacyPackages.${system};
+        pkgs = pkgs;
 
         # defaultPackage.${system} = home-manager.defaultPackage.${system};
 
