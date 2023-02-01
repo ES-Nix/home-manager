@@ -36,12 +36,12 @@
                 # Hack, but work relly well
                 export PATH=/usr/bin:$PATH
 
-                if [ ! $(stat -c '%a' "$HOME"/.nix-profile/bin/newuidmap) -eq 4511 ]; then
-                  sudo chmod -v 4511 "$HOME"/.nix-profile/bin/newuidmap
+                if [ ! $(stat -c '%a' $(readlink "$HOME"/.nix-profile/bin/newuidmap)) -eq 4511 ]; then
+                  sudo chmod -v 4511 $(readlink "$HOME"/.nix-profile/bin/newuidmap)
                 fi
 
-                if [ ! $(stat -c '%a' "$HOME"/.nix-profile/bin/newgidmap) -eq 4511 ]; then
-                  sudo chmod -v 4511 "$HOME"/.nix-profile/bin/newgidmap
+                if [ ! $(stat -c '%a' $(readlink "$HOME"/.nix-profile/bin/newgidmap)) -eq 4511 ]; then
+                  sudo chmod -v 4511 $(readlink "$HOME"/.nix-profile/bin/newgidmap)
                 fi
               '';
             };

@@ -75,12 +75,6 @@
      )
   ];
 
-#  home.activation = {
-#    myActivationAction = lib.hm.dag.entryAfter ["writeBoundary"] ''
-#      echo $HOME
-#    '';
-#  };
-
   # https://github.com/nix-community/home-manager/blob/782cb855b2f23c485011a196c593e2d7e4fce746/modules/targets/generic-linux.nix
   targets.genericLinux.enable = true;
 
