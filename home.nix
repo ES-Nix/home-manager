@@ -9,19 +9,49 @@
 
   home.packages = with pkgs; [
     # Graphical packages
+    #dbeaver
     #discord
+    #gitkraken
+    #gitkraken
+    #insomnia
+    #jetbrains.pycharm-community
+    #keepassxc
+    #kolourpaint
+    #libreoffice
     #obsidian
+    #okular
+    #peek
     #spotify
     #tdesktop
-    #kolourpaint
-    #gitkraken
-    #vscodium
-    #dbeaver
-    #peek
     #vlc
-    #jetbrains.pycharm-community
-    #gitkraken
-    #xorg.xclock
+    #vscodium
+
+    xorg.xclock
+    hello
+    figlet
+    cowsay
+    ponysay
+
+    coreutils
+    binutils
+    utilslinux
+    glibc.bin
+    file
+    findutils
+    gnugrep
+    gnumake
+    curl
+    wget
+    lsof
+    tree
+
+    graphviz # dot command comes from here
+    jq
+    unixtools.xxd
+
+    gzip
+    unrar
+    unzip
 
     btop
     htop
@@ -128,14 +158,6 @@
 #      };
 #  };
 
-  # programs.emacs = {
-  #   enable = true;
-  #   extraPackages = epkgs: [
-  #     epkgs.nix-mode
-  #     epkgs.magit
-  #  ];
-  # };
-
   # programs.firefox = {
   #   enable = true;
   #   profiles = {
@@ -147,11 +169,11 @@
   #   };
   # };
 
-  services.gpg-agent = {
-    enable = true;
-    defaultCacheTtl = 1800;
-    enableSshSupport = true;
-  };
+  #services.gpg-agent = {
+    #enable = true;
+    #defaultCacheTtl = 1800;
+    #enableSshSupport = true;
+  #};
 
   programs.home-manager = {
     enable = true;
