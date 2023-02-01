@@ -66,11 +66,20 @@ sudo chmod -v 4511 "$HOME"/.nix-profile/bin/new{u,g}idmap
 podman ps
 ```
 
+### Digging
+
+```bash
+find / -type f -perm -4000 -exec ls -al {} \; 2> /dev/null
+```
+Refs.:
+- https://askubuntu.com/a/1083482
+
 
 ## References
 
 - [Home Manager](https://nixos.wiki/wiki/Home_Manager)
 - https://rycee.gitlab.io/home-manager/options.html
+- https://nix-community.github.io/home-manager/options.html#opt-programs.direnv.config
 - [Example: Use nix-flakes with home-manager on non-nixos systems](https://discourse.nixos.org/t/example-use-nix-flakes-with-home-manager-on-non-nixos-systems/10185/8)
 - [How to do a flake build in non-nixos system?](https://discourse.nixos.org/t/how-to-do-a-flake-build-in-non-nixos-system/10450/7)
 - https://www.reddit.com/r/NixOS/comments/mqw0cl/question_about_flakes_and_homemanager/h0oruzg/?utm_source=share&utm_medium=web2x&context=3
@@ -82,8 +91,15 @@ podman ps
 - https://www.reddit.com/r/NixOS/comments/qeien0/homemanager_and_configurationnix/
 - https://news.ycombinator.com/item?id=28886435
 - [A minimal Nix development environment on WSL](https://cbailey.co.uk/posts/a_minimal_nix_development_environment_on_wsl)
+- https://discourse.nixos.org/t/fusermount-systemd-service-in-home-manager/5157
+- https://mudrii.medium.com/nixos-home-manager-on-native-nix-flake-installation-and-configuration-22d018654f0c
+- https://github.com/nix-community/home-manager/blob/782cb855b2f23c485011a196c593e2d7e4fce746/modules/services/lorri.nix#L100
+- https://eevie.ro/posts/2022-01-24-how-i-nix.html
 
 
+### security
+
+- https://bugs.launchpad.net/calibre/+bug/885027
 
 ### History
 

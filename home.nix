@@ -44,6 +44,7 @@
     wget
     lsof
     tree
+    killall
 
     graphviz # dot command comes from here
     jq
@@ -74,6 +75,7 @@
      )
   ];
 
+  # https://github.com/nix-community/home-manager/blob/782cb855b2f23c485011a196c593e2d7e4fce746/modules/targets/generic-linux.nix
   targets.genericLinux.enable = true;
 
   # https://beb.ninja/post/installing-podman/
@@ -131,11 +133,27 @@
     #    exa.enable = true;
     #};
 
+  # https://nix-community.github.io/home-manager/options.html#opt-programs.direnv.config
   programs.direnv = {
     enable = true;
     nix-direnv = {
       enable = true;
     };
+  };
+
+  fzf = {
+    enable = true;
+    # enableBashIntegration = true;
+    # enableFishIntegration = true;
+  };
+
+  # This makes it so that if you type the name of a program that
+  # isn't installed, it will tell you which package contains it.
+  # https://eevie.ro/posts/2022-01-24-how-i-nix.html
+  nix-index = {
+    enable = true;
+    # enableFishIntegration = true;
+    # enableBashIntegration = true;
   };
 
 #  programs.vscode = {
