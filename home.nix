@@ -141,7 +141,7 @@
     };
   };
 
-  fzf = {
+  programs.fzf = {
     enable = true;
     # enableBashIntegration = true;
     # enableFishIntegration = true;
@@ -150,15 +150,11 @@
   # This makes it so that if you type the name of a program that
   # isn't installed, it will tell you which package contains it.
   # https://eevie.ro/posts/2022-01-24-how-i-nix.html
-  nix-index = {
+  programs.nix-index = {
     enable = true;
     # enableFishIntegration = true;
     # enableBashIntegration = true;
   };
-
-  myActivationAction = lib.hm.dag.entryAfter ["writeBoundary"] ''
-    echo $HOME
-  '';
 
 #  programs.vscode = {
 #      enable = true;
