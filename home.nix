@@ -156,6 +156,10 @@
     # enableBashIntegration = true;
   };
 
+  myActivationAction = lib.hm.dag.entryAfter ["writeBoundary"] ''
+    echo $HOME
+  '';
+
 #  programs.vscode = {
 #      enable = true;
 #      package = pkgs.vscode;
