@@ -50,7 +50,7 @@
     unixtools.xxd
 
     gzip
-    unrar
+    # unrar
     unzip
 
     btop
@@ -117,6 +117,19 @@
   services.spotifyd.enable = true;
 
   fonts.fontconfig.enable = true;
+
+    #programs = {
+    #    home-manager.enable = true;
+    #    gpg.enable = true;
+    #    fzf.enable = true;
+    #    jq.enable = true;
+    #    bat.enable = true;
+    #    command-not-found.enable = true;
+    #    dircolors.enable = true;
+    #    htop.enable = true;
+    #    info.enable = true;
+    #    exa.enable = true;
+    #};
 
   programs.direnv = {
     enable = true;

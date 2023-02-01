@@ -1,6 +1,6 @@
 # home-manager
 
-It is an POC repository that is still improving
+It is an [POC](https://en.wikipedia.org/wiki/Proof_of_concept) repository that is still improving.
 
 Mainly from [Example: Use nix-flakes with home-manager on non-nixos systems](https://discourse.nixos.org/t/example-use-nix-flakes-with-home-manager-on-non-nixos-systems/10185/9)
 
@@ -81,6 +81,9 @@ podman ps
 - https://discourse.nixos.org/t/how-to-use-nixos-systemd-user-service-definiton-in-non-nixos-system-via-home-manager/19042
 - https://www.reddit.com/r/NixOS/comments/qeien0/homemanager_and_configurationnix/
 - https://news.ycombinator.com/item?id=28886435
+- [A minimal Nix development environment on WSL](https://cbailey.co.uk/posts/a_minimal_nix_development_environment_on_wsl)
+
+
 
 ### History
 
