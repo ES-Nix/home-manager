@@ -150,7 +150,19 @@
   services.systembus-notify.enable = true;
   services.spotifyd.enable = true;
 
-  fonts.fontconfig.enable = true;
+  fonts = {
+    enableFontDir = true;
+    enableGhostscriptFonts = true;
+    fonts = with pkgs; [
+      powerline-fonts
+    ];
+    fontconfig = {
+      enable = true;
+      defaultFonts = {
+          monospace = [ "Droid Sans Mono Slashed for Powerline" ];
+      };
+    };
+  };
 
     #programs = {
     #    home-manager.enable = true;
