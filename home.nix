@@ -54,6 +54,7 @@
     zsh-powerlevel10k
     zsh-powerlevel9k
     zsh-syntax-highlighting
+    oh-my-zsh
     # zsh-completions-latest
 
 #    gcc
@@ -204,43 +205,78 @@
     };
       oh-my-zsh = {
         enable = true;
+        # plugins = (import ./zsh/plugins.nix) pkgs;
+        # https://github.com/Xychic/NixOSConfig/blob/76b638086dfcde981292831106a43022588dc670/home/home-manager.nix
         plugins = [
             "autojump"
+            "aws"
+            "cargo"
+            "catimg"
+            "colored-man-pages"
             "colorize"
             "command-not-found"
             "common-aliases"
+            "copyfile"
+            "copypath"
             "cp"
+            "direnv"
             "docker"
             "docker-compose"
+            "emacs"
+            "encode64"
+            "extract"
+            "fancy-ctrl-z"
             "fzf"
+            "gcloud"
             "git"
+            "git-extras"
+            "git-flow-avh"
+            "github"
+            "gitignore"
+            "gradle"
             "history"
             "history-substring-search"
+            "kubectl"
+            "man"
+            "mvn"
             "node"
             "npm"
+            "pass"
+            "pip"
+            "poetry"
+            "python"
             "ripgrep"
+            "rsync"
+            "rust"
+            "scala"
             "ssh-agent"
             "sudo"
             "systemadmin" # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/systemadmin
-            # "thefuck"
+            "systemd"
+            "terraform"
+            "thefuck"
             "tig"
+            "timer"
             "tmux"
-            "tmux"
+            "vagrant"
             "vi-mode"
             "vim-interaction"
+            "yarn"
+            "z"
             "zsh-navigation-tools"
-            "man"
-            "colored-man-pages"
-            "pass"
-            "python"
         ];
         # theme = "robbyrussell";
         # theme = "bira";
+        theme = "powerlevel10k";
         # theme = "powerlevel9k/powerlevel9k";
         # theme = "agnoster";
         # theme = "gallois";
         # theme = "gentoo";
         # theme = "af-magic";
+        # theme = "half-life";
+        # theme = "rgm";
+        # theme = "crcandy";
+        # theme = "fishy";
       };
 
 #       zplug = {
