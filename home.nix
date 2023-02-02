@@ -208,9 +208,9 @@
         # plugins = (import ./zsh/plugins.nix) pkgs;
         # https://github.com/Xychic/NixOSConfig/blob/76b638086dfcde981292831106a43022588dc670/home/home-manager.nix
         plugins = [
-            "autojump"
+            # "autojump"
             "aws"
-            "cargo"
+            # "cargo"
             "catimg"
             "colored-man-pages"
             "colorize"
@@ -253,7 +253,7 @@
             "sudo"
             "systemadmin" # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/systemadmin
             "systemd"
-            "terraform"
+            # "terraform"
             "thefuck"
             "tig"
             "timer"
@@ -265,9 +265,9 @@
             "z"
             "zsh-navigation-tools"
         ];
-        # theme = "robbyrussell";
+        theme = "robbyrussell";
         # theme = "bira";
-        theme = "powerlevel10k";
+        # theme = "powerlevel10k";
         # theme = "powerlevel9k/powerlevel9k";
         # theme = "agnoster";
         # theme = "gallois";
