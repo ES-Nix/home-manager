@@ -46,6 +46,8 @@
               '';
             };
             programs.home-manager.enable = true;
+            # TODO: https://nix-community.github.io/home-manager/index.html#sec-install-standalone
+            # programs.home-manager.useGlobalPkgs = true;
           }
 
           ./home.nix

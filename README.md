@@ -79,12 +79,19 @@ find / -type f -perm -4000 -exec ls -al {} \; 2> /dev/null
 Refs.:
 - https://askubuntu.com/a/1083482
 
+TODO:
+loginctl enable-linger [USER]
+https://discourse.nixos.org/t/replacing-docker-workflow-for-service-ops-with-nix/20753/2
+
 
 ## References
 
 - [Home Manager](https://nixos.wiki/wiki/Home_Manager)
 - https://rycee.gitlab.io/home-manager/options.html
 - https://nix-community.github.io/home-manager/options.html#opt-programs.direnv.config
+- lib.hm.dag.entryAfter ["writeBoundary"]: https://nix-community.github.io/home-manager/options.html#opt-home.activation
+- https://discourse.nixos.org/t/activation-script-print-to-stdout/14401/5
+- https://github.com/nix-community/home-manager/issues/2959#issuecomment-1155830902
 - [Example: Use nix-flakes with home-manager on non-nixos systems](https://discourse.nixos.org/t/example-use-nix-flakes-with-home-manager-on-non-nixos-systems/10185/8)
 - [How to do a flake build in non-nixos system?](https://discourse.nixos.org/t/how-to-do-a-flake-build-in-non-nixos-system/10450/7)
 - https://www.reddit.com/r/NixOS/comments/mqw0cl/question_about_flakes_and_homemanager/h0oruzg/?utm_source=share&utm_medium=web2x&context=3
