@@ -1229,10 +1229,12 @@
   # This makes it so that if you type the name of a program that
   # isn't installed, it will tell you which package contains it.
   # https://eevie.ro/posts/2022-01-24-how-i-nix.html
+  #
   programs.nix-index = {
     enable = true;
     # enableFishIntegration = true;
     # enableBashIntegration = true;
+    enableZshIntegration = true;
   };
 
 
@@ -1273,17 +1275,17 @@
 #      };
 #  };
 
-  programs.chromium = {
-    enable = true;
-  };
-
-   programs.firefox = {
-     enable = true;
-   };
-
-   programs.brave = {
-     enable = true;
-   };
+#  programs.chromium = {
+#    enable = true;
+#  };
+#
+#   programs.firefox = {
+#     enable = true;
+#   };
+#
+#   programs.brave = {
+#     enable = true;
+#   };
 
   # programs.firefox = {
   #   enable = true;
