@@ -9,24 +9,24 @@
 
   home.packages = with pkgs; [
     # Graphical packages
-    #brave
-    #dbeaver
-    #discord
-    #gimp
-    #gitkraken
-    #inkscape
-    #insomnia
-    #jetbrains.pycharm-community
-    #keepassxc
-    #kolourpaint
-    #libreoffice
-    #obsidian
-    #okular
-    #peek
-    #spotify
-    #tdesktop
-    #vlc
-    #vscodium
+    brave
+    dbeaver
+    discord
+    gimp
+    gitkraken
+    inkscape
+    insomnia
+    jetbrains.pycharm-community
+    keepassxc
+    kolourpaint
+    libreoffice
+    obsidian
+    okular
+    peek
+    spotify
+    tdesktop
+    vlc
+    vscodium
 
     xorg.xclock
     hello
