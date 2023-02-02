@@ -59,8 +59,8 @@ cd "${DESTINATION_FOLDER}"
 nix flake clone github:ES-Nix/home-manager --dest "${DESTINATION_FOLDER}"
 
 
-mv ~/.profile ~/.profile.bk
-mv ~/.bashrc ~/.bashrc.bk
+#mv ~/.profile ~/.profile.bk
+#mv ~/.bashrc ~/.bashrc.bk
 
 $(nix build --impure --print-out-paths "${DESTINATION_FOLDER}"#homeConfigurations.$USER.activationPackage)/activate
 

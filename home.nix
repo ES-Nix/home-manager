@@ -49,7 +49,10 @@
     man
     man-db
 
-    zsh-completions-latest
+    zsh-nix-shell
+    zsh-powerlevel10k
+    zsh-syntax-highlighting
+    # zsh-completions-latest
 
 #    gcc
 #    clang
@@ -189,13 +192,19 @@
       oh-my-zsh = {
         enable = true;
         plugins = [
-          "git"
-          "thefuck"
-          "sudo"
-          "colorize"
-          "docker-compose"
-          "ripgrep"
-          "tmux"
+            "colorize"
+            "command-not-found"
+            "cp"
+            "docker-compose"
+            "git"
+            "history-substring-search"
+            "node"
+            "npm"
+            "ripgrep"
+            "ssh-agent"
+            "sudo"
+            "thefuck"
+            "tmux"
         ];
         theme = "robbyrussell";
         # theme = "bira";
