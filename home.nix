@@ -4,8 +4,8 @@
 
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
-  # home.username = "vagrant";
-  # home.homeDirectory = "/home/vagrant";
+  home.username = "ubuntu";
+  home.homeDirectory = "/home/ubuntu";
 
   home.packages = with pkgs; [
     # Graphical packages
@@ -180,6 +180,9 @@
 
   # initExtra = "neofetch --ascii_distro NixOS_small --color_blocks off --disable cpu gpu memory term de resolution kernel model";
   initExtra = "${pkgs.neofetch}/bin/neofetch";
+
+
+  # initExtraBeforeCompInit = ''eval "$(direnv hook zsh)"'';
   autocd = true;
 
   historySubstringSearch.enable = true;
@@ -203,7 +206,7 @@
             "ripgrep"
             "ssh-agent"
             "sudo"
-            "thefuck"
+            # "thefuck"
             "tmux"
         ];
         theme = "robbyrussell";

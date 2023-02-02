@@ -67,6 +67,12 @@ $(nix build --impure --print-out-paths "${DESTINATION_FOLDER}"#homeConfiguration
 ```
 
 ```bash
+echo /home/$USER/.nix-profile/bin/zsh | sudo tee -a /etc/shells
+sudo usermod -s /home/$USER/.nix-profile/bin/zsh $USER
+```
+
+
+```bash
 systemctl --user start systembus-notify.service
 ```
 
