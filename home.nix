@@ -151,7 +151,7 @@
   services.spotifyd.enable = true;
 
   fonts = {
-    enableFontDir = true;
+    # enableFontDir = true;
     enableGhostscriptFonts = true;
     fonts = with pkgs; [
       powerline-fonts
