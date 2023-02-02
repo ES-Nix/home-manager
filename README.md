@@ -60,6 +60,17 @@ $(nix build --impure --print-out-paths "${DESTINATION_FOLDER}"#homeConfiguration
 systemctl --user start systembus-notify.service
 ```
 
+```bash
+home-manager switch
+```
+
+```bash
+export NIXPKGS_ALLOW_UNFREE=1; home-manager switch --impure
+```
+
+```bash
+export NIXPKGS_ALLOW_UNFREE=1; home-manager switch --impure -b backup
+```
 
 ```bash
 sudo chmod -v 4511 "$HOME"/.nix-profile/bin/new{u,g}idmap

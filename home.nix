@@ -12,7 +12,6 @@
     #dbeaver
     #discord
     #gitkraken
-    #gitkraken
     #insomnia
     #jetbrains.pycharm-community
     #keepassxc
@@ -132,6 +131,11 @@
     #    info.enable = true;
     #    exa.enable = true;
     #};
+
+  programs.bash = {
+    enable = true;
+    # bashrcExtra = "echo foo-bar";
+  };
 
   # https://nix-community.github.io/home-manager/options.html#opt-programs.direnv.config
   programs.direnv = {
