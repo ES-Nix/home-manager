@@ -35,7 +35,9 @@
     ponysay
     cmatrix
 
-    nix
+
+    #
+    # nix
 
     coreutils
     binutils
