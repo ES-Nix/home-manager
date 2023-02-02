@@ -9,27 +9,31 @@
 
   home.packages = with pkgs; [
     # Graphical packages
-    #dbeaver
-    #discord
-    #gitkraken
-    #insomnia
-    #jetbrains.pycharm-community
-    #keepassxc
-    #kolourpaint
-    #libreoffice
-    #obsidian
-    #okular
-    #peek
-    #spotify
-    #tdesktop
-    #vlc
-    #vscodium
+    brave
+    dbeaver
+    discord
+    gimp
+    gitkraken
+    inkscape
+    insomnia
+    jetbrains.pycharm-community
+    keepassxc
+    kolourpaint
+    libreoffice
+    obsidian
+    okular
+    peek
+    spotify
+    tdesktop
+    vlc
+    vscodium
 
     xorg.xclock
     hello
     figlet
     cowsay
     ponysay
+    cmatrix
 
     # nix
 
@@ -46,9 +50,15 @@
     lsof
     tree
     killall
+    nmap
     man
     man-db
     (aspellWithDicts(d: with d; [ de en ]))
+    gnome.simple-scan
+    imagemagick
+    nix-prefetch-git
+    nixfmt
+    shellcheck
 
     zsh-nix-shell
     zsh-powerlevel10k
@@ -57,11 +67,11 @@
     oh-my-zsh
     # zsh-completions-latest
 
-#    gcc
-#    clang
-#    rustc
-#    python3Full
-#    julia-bin
+    gcc
+    clang
+    rustc
+    python3Full
+    julia-bin
 
     graphviz # dot command comes from here
     jq
@@ -274,6 +284,11 @@
         # theme = "fishy";
       };
     };
+
+  programs.chromium = {
+    enable = true;
+    package = pkgs.brave;
+  };
 
 #  programs.starship = {
 #    enable = true;
