@@ -155,10 +155,10 @@
   home.extraOutputsToInstall = ["/share/zsh"];
 
 
-    programs.starship = {
-      enable = true;
-      enableZshIntegration = true;
-    };
+#    programs.starship = {
+#      enable = true;
+#      enableZshIntegration = true;
+#    };
 
     # https://www.reddit.com/r/NixOS/comments/fenb4u/zsh_with_ohmyzsh_with_powerlevel10k_in_nix/
     programs.zsh = {
