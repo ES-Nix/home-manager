@@ -157,12 +157,6 @@
 
   home.extraOutputsToInstall = ["/share/zsh"];
 
-
-#    programs.starship = {
-#      enable = true;
-#      enableZshIntegration = true;
-#    };
-
     # https://www.reddit.com/r/NixOS/comments/fenb4u/zsh_with_ohmyzsh_with_powerlevel10k_in_nix/
     programs.zsh = {
       # Your zsh config
@@ -171,99 +165,100 @@
       dotDir = ".config/zsh";
       enableAutosuggestions = true;
       enableSyntaxHighlighting = true;
-  envExtra = ''
-    if [ -e ~/.nix-profile/etc/profile.d/nix.sh ]; then
-      . ~/.nix-profile/etc/profile.d/nix.sh
-    fi
-  '';
+      envExtra = ''
+        if [ -e ~/.nix-profile/etc/profile.d/nix.sh ]; then
+          . ~/.nix-profile/etc/profile.d/nix.sh
+        fi
+      '';
 
-  # initExtra = "neofetch --ascii_distro NixOS_small --color_blocks off --disable cpu gpu memory term de resolution kernel model";
-  initExtra = "${pkgs.neofetch}/bin/neofetch";
+      # initExtra = "neofetch --ascii_distro NixOS_small --color_blocks off --disable cpu gpu memory term de resolution kernel model";
+      initExtra = "${pkgs.neofetch}/bin/neofetch";
 
-  # promptInit = ''
-  #   export POWERLEVEL9K_MODE=nerdfont-complete
-  #   source ${pkgs.zsh-powerlevel9k}/share/zsh-powerlevel9k/powerlevel9k.zsh-theme
-  # '';
+      # promptInit = ''
+      #   export POWERLEVEL9K_MODE=nerdfont-complete
+      #   source ${pkgs.zsh-powerlevel9k}/share/zsh-powerlevel9k/powerlevel9k.zsh-theme
+      # '';
 
-  # initExtraBeforeCompInit = ''eval "$(direnv hook zsh)"'';
-  autocd = true;
+      # initExtraBeforeCompInit = ''eval "$(direnv hook zsh)"'';
+      autocd = true;
 
-#    sessionVariables = {
-#      EDITOR = "nvim";
-#      DEFAULT_USER = "ivan";
-#      ZSH_AUTOSUGGEST_USE_ASYNC="true";
-#      ZSH_AUTOSUGGEST_MANUAL_REBIND="true";
-#      PROMPT="|%F{153}%n@%m%f|%F{174}%1~%f> ";
-#    };
+      # sessionVariables = {
+      #   EDITOR = "nvim";
+      #   DEFAULT_USER = "ivan";
+      #   ZSH_AUTOSUGGEST_USE_ASYNC="true";
+      #   ZSH_AUTOSUGGEST_MANUAL_REBIND="true";
+      #   PROMPT="|%F{153}%n@%m%f|%F{174}%1~%f> ";
+      # };
+      historySubstringSearch.enable = true;
 
-  historySubstringSearch.enable = true;
-    history = {
-      save = 50000;
-      size = 50000;
-      path = "$HOME/.cache/zsh_history";
-      expireDuplicatesFirst = true;
-    };
+      history = {
+        save = 50000;
+        size = 50000;
+        path = "$HOME/.cache/zsh_history";
+        expireDuplicatesFirst = true;
+      };
+
       oh-my-zsh = {
         enable = true;
         # plugins = (import ./zsh/plugins.nix) pkgs;
         # https://github.com/Xychic/NixOSConfig/blob/76b638086dfcde981292831106a43022588dc670/home/home-manager.nix
         plugins = [
-            # "autojump"
-            "aws"
-            # "cargo"
-            "catimg"
-            "colored-man-pages"
-            "colorize"
-            "command-not-found"
-            "common-aliases"
-            "copyfile"
-            "copypath"
-            "cp"
-            "direnv"
-            "docker"
-            "docker-compose"
-            "emacs"
-            "encode64"
-            "extract"
-            "fancy-ctrl-z"
-            "fzf"
-            "gcloud"
-            "git"
-            "git-extras"
-            "git-flow-avh"
-            "github"
-            "gitignore"
-            "gradle"
-            "history"
-            "history-substring-search"
-            "kubectl"
-            "man"
-            "mvn"
-            "node"
-            "npm"
-            "pass"
-            "pip"
-            "poetry"
-            "python"
-            "ripgrep"
-            "rsync"
-            "rust"
-            "scala"
-            "ssh-agent"
-            "sudo"
-            "systemadmin" # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/systemadmin
-            "systemd"
-            "terraform"
-            # "thefuck"
-            "tig"
-            "timer"
-            "tmux"
-            "vagrant"
-            "vi-mode"
-            "vim-interaction"
-            "yarn"
-            "z"
-            "zsh-navigation-tools"
+          # "autojump"
+          "aws"
+          # "cargo"
+          "catimg"
+          "colored-man-pages"
+          "colorize"
+          "command-not-found"
+          "common-aliases"
+          "copyfile"
+          "copypath"
+          "cp"
+          "direnv"
+          "docker"
+          "docker-compose"
+          "emacs"
+          "encode64"
+          "extract"
+          "fancy-ctrl-z"
+          "fzf"
+          "gcloud"
+          "git"
+          "git-extras"
+          "git-flow-avh"
+          "github"
+          "gitignore"
+          "gradle"
+          "history"
+          "history-substring-search"
+          "kubectl"
+          "man"
+          "mvn"
+          "node"
+          "npm"
+          "pass"
+          "pip"
+          "poetry"
+          "python"
+          "ripgrep"
+          "rsync"
+          "rust"
+          "scala"
+          "ssh-agent"
+          "sudo"
+          "systemadmin" # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/systemadmin
+          "systemd"
+          "terraform"
+          # "thefuck"
+          "tig"
+          "timer"
+          "tmux"
+          "vagrant"
+          "vi-mode"
+          "vim-interaction"
+          "yarn"
+          "z"
+          "zsh-navigation-tools"
         ];
         theme = "robbyrussell";
         # theme = "bira";
@@ -278,20 +273,17 @@
         # theme = "crcandy";
         # theme = "fishy";
       };
-
-#       zplug = {
-#         enable = true;
-#         plugins = [
-#           { name = "romkatv/powerlevel10k"; tags = [ as:theme depth:1 ]; }
-#         # Installations with additional options. For the list of options,
-#         # please refer to Zplug README.
-#         ];
-#       };
     };
 
 #  programs.starship = {
 #    enable = true;
+#    enableZshIntegration = true;
+#  };
+
+#  programs.starship = {
+#    enable = true;
 #    enableFishIntegration = true;
+#    enableZshIntegration = true;
 #    enableZshIntegration = true;
 #    settings = {
 #      shell = { disabled = false; };
