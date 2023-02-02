@@ -157,10 +157,10 @@
   home.extraOutputsToInstall = ["/share/zsh"];
 
 
-    programs.starship = {
-      enable = true;
-      enableZshIntegration = true;
-    };
+#    programs.starship = {
+#      enable = true;
+#      enableZshIntegration = true;
+#    };
 
     # https://www.reddit.com/r/NixOS/comments/fenb4u/zsh_with_ohmyzsh_with_powerlevel10k_in_nix/
     programs.zsh = {
@@ -204,6 +204,7 @@
             "cp"
             "docker"
             "docker-compose"
+            "fzf"
             "git"
             "history"
             "history-substring-search"
@@ -212,6 +213,7 @@
             "ripgrep"
             "ssh-agent"
             "sudo"
+            "systemadmin" # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/systemadmin
             # "thefuck"
             "tig"
             "tmux"
@@ -223,7 +225,8 @@
         # theme = "robbyrussell";
         # theme = "bira";
         # theme = "powerlevel9k/powerlevel9k";
-        theme = "agnoster";
+        # theme = "agnoster";
+        theme = "gallois";
         # theme = "gentoo";
         # theme = "af-magic";
       };
