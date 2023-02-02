@@ -209,9 +209,9 @@
             # "thefuck"
             "tmux"
         ];
-        theme = "robbyrussell";
+        # theme = "robbyrussell";
         # theme = "bira";
-        # theme = "powerlevel9k/powerlevel9k";
+        theme = "powerlevel9k/powerlevel9k";
         # theme = "gentoo";
         # theme = "af-magic";
       };
