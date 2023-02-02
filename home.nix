@@ -66,6 +66,14 @@
     shellcheck
 
     fontconfig
+    fira
+    source-sans
+    aurulent-sans
+    lato
+    liberation_ttf
+    montserrat
+    (nerdfonts.override { fonts = [ "FiraCode"]; })
+
     zsh-nix-shell
     zsh-powerlevel10k
     zsh-powerlevel9k
@@ -152,15 +160,15 @@
 
   fonts = {
     # enableFontDir = true;
-    enableGhostscriptFonts = true;
-    fonts = with pkgs; [
-      powerline-fonts
-    ];
+    #enableGhostscriptFonts = true;
+    #fonts = with pkgs; [
+    #  powerline-fonts
+    #];
     fontconfig = {
       enable = true;
-      defaultFonts = {
-          monospace = [ "Droid Sans Mono Slashed for Powerline" ];
-      };
+    #  defaultFonts = {
+    #      monospace = [ "Droid Sans Mono Slashed for Powerline" ];
+    #  };
     };
   };
 
