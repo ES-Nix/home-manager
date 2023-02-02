@@ -29,8 +29,14 @@
     #vlc
     vscodium
     blender
+
+
     mesa
     mesa_drivers
+    linuxPackages.nvidia_x11
+    cudatoolkit
+    cudatoolkit.lib
+    mpi
 
     xorg.xclock
     hello
@@ -63,6 +69,8 @@
     nmap
     netcat
     tmate
+    strace
+    ptrace
     traceroute
     man
     man-db
@@ -90,6 +98,7 @@
     # zsh-completions-latest
 
 #    gcc
+#    gdb
 #    clang
 #    rustc
 #    python3Full
