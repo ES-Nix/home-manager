@@ -9,24 +9,24 @@
 
   home.packages = with pkgs; [
     # Graphical packages
-    brave
-    dbeaver
-    discord
-    gimp
-    gitkraken
-    inkscape
-    insomnia
-    jetbrains.pycharm-community
-    keepassxc
-    kolourpaint
-    libreoffice
-    obsidian
-    okular
-    peek
-    spotify
-    tdesktop
-    vlc
-    vscodium
+    #brave
+    #dbeaver
+    #discord
+    #gimp
+    #gitkraken
+    #inkscape
+    #insomnia
+    #jetbrains.pycharm-community
+    #keepassxc
+    #kolourpaint
+    #libreoffice
+    #obsidian
+    #okular
+    #peek
+    #spotify
+    #tdesktop
+    #vlc
+    #vscodium
 
     xorg.xclock
     hello
@@ -89,13 +89,12 @@
     git
     openssh
 
-
-    podman
-    runc
-    skopeo
-    conmon
-    slirp4netns
-    shadow
+    #podman
+    #runc
+    #skopeo
+    #conmon
+    #slirp4netns
+    #shadow
 
      (
        writeScriptBin "ix" ''
@@ -167,6 +166,7 @@
     # bashrcExtra = "echo foo-bar";
   };
 
+  # TODO: documentar e testar
   home.extraOutputsToInstall = ["/share/zsh"];
 
     # https://www.reddit.com/r/NixOS/comments/fenb4u/zsh_with_ohmyzsh_with_powerlevel10k_in_nix/
@@ -1233,6 +1233,11 @@
     enable = true;
     # enableFishIntegration = true;
     # enableBashIntegration = true;
+  };
+
+  programs.vscodium = {
+      enable = true;
+      package = pkgs.vscodium;
   };
 
 #  programs.vscode = {

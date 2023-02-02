@@ -29,21 +29,21 @@
               homeDirectory = "/home/${username}";
               stateVersion = "22.11";
 
-              activation.test = home-manager.lib.hm.dag.entryAfter ["writeBoundary"] ''
-                # set -x
-                echo "Started activation.test, it may call sudo on first time"
-
-                # Hack, but work relly well
-                export PATH=/usr/bin:$PATH
-
-                if [ ! $(stat -c '%a' $(readlink "$HOME"/.nix-profile/bin/newuidmap)) -eq 4511 ]; then
-                  sudo chmod -v 4511 $(readlink "$HOME"/.nix-profile/bin/newuidmap)
-                fi
-
-                if [ ! $(stat -c '%a' $(readlink "$HOME"/.nix-profile/bin/newgidmap)) -eq 4511 ]; then
-                  sudo chmod -v 4511 $(readlink "$HOME"/.nix-profile/bin/newgidmap)
-                fi
-              '';
+#              activation.test = home-manager.lib.hm.dag.entryAfter ["writeBoundary"] ''
+#                # set -x
+#                echo "Started activation.test, it may call sudo on first time"
+#
+#                # Hack, but work relly well
+#                export PATH=/usr/bin:$PATH
+#
+#                if [ ! $(stat -c '%a' $(readlink "$HOME"/.nix-profile/bin/newuidmap)) -eq 4511 ]; then
+#                  sudo chmod -v 4511 $(readlink "$HOME"/.nix-profile/bin/newuidmap)
+#                fi
+#
+#                if [ ! $(stat -c '%a' $(readlink "$HOME"/.nix-profile/bin/newgidmap)) -eq 4511 ]; then
+#                  sudo chmod -v 4511 $(readlink "$HOME"/.nix-profile/bin/newgidmap)
+#                fi
+#              '';
             };
             programs.home-manager.enable = true;
             # TODO: https://nix-community.github.io/home-manager/index.html#sec-install-standalone
