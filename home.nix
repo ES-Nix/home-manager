@@ -1273,10 +1273,10 @@
 #      };
 #  };
 
-#  programs.chromium = {
-#    enable = true;
-#    package = pkgs.brave;
-#  };
+  programs.chromium = {
+    enable = true;
+    package = pkgs.brave;
+  };
 
   # programs.firefox = {
   #   enable = true;
