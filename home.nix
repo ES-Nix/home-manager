@@ -16,6 +16,7 @@
     #gitkraken
     #inkscape
     #insomnia
+    #postman
     #jetbrains.pycharm-community
     #keepassxc
     #kolourpaint
@@ -27,7 +28,9 @@
     #tdesktop
     #vlc
     vscodium
+    blender
     mesa
+    mesa_drivers
 
     xorg.xclock
     hello
@@ -46,6 +49,8 @@
     binutils
     utillinux
     glibc.bin
+    patchelf
+    glxinfo
     file
     findutils
     gnugrep
