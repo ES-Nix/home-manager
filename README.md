@@ -17,6 +17,9 @@ NIX_RELEASE_VERSION=2.10.2 \
 
 Enabling flakes and some other stuff:
 ```bash
+NIX_RELEASE_VERSION=2.10.2 \
+&& curl -L https://releases.nixos.org/nix/nix-"${NIX_RELEASE_VERSION}"/install | sh -s -- --no-daemon
+
 nix \
 profile \
 install \
