@@ -48,6 +48,7 @@
     killall
     man
     man-db
+    (aspellWithDicts(d: with d; [ de en ]))
 
     zsh-nix-shell
     zsh-powerlevel10k
@@ -169,10 +170,6 @@
       dotDir = ".config/zsh";
       enableAutosuggestions = true;
       enableSyntaxHighlighting = true;
-       promptInit = ''
-         export POWERLEVEL9K_MODE=nerdfont-complete
-         source ${pkgs.zsh-powerlevel9k}/share/zsh-powerlevel9k/powerlevel9k.zsh-theme
-       '';
   envExtra = ''
     if [ -e ~/.nix-profile/etc/profile.d/nix.sh ]; then
       . ~/.nix-profile/etc/profile.d/nix.sh
@@ -182,6 +179,10 @@
   # initExtra = "neofetch --ascii_distro NixOS_small --color_blocks off --disable cpu gpu memory term de resolution kernel model";
   initExtra = "${pkgs.neofetch}/bin/neofetch";
 
+  # promptInit = ''
+  #   export POWERLEVEL9K_MODE=nerdfont-complete
+  #   source ${pkgs.zsh-powerlevel9k}/share/zsh-powerlevel9k/powerlevel9k.zsh-theme
+  # '';
 
   # initExtraBeforeCompInit = ''eval "$(direnv hook zsh)"'';
   autocd = true;
@@ -196,11 +197,15 @@
       oh-my-zsh = {
         enable = true;
         plugins = [
+            "autojump"
             "colorize"
             "command-not-found"
+            "common-aliases"
             "cp"
+            "docker"
             "docker-compose"
             "git"
+            "history"
             "history-substring-search"
             "node"
             "npm"
@@ -208,11 +213,17 @@
             "ssh-agent"
             "sudo"
             # "thefuck"
+            "tig"
             "tmux"
+            "tmux"
+            "vi-mode"
+            "vim-interaction"
+            "zsh-navigation-tools"
         ];
         # theme = "robbyrussell";
         # theme = "bira";
-        theme = "powerlevel9k/powerlevel9k";
+        # theme = "powerlevel9k/powerlevel9k";
+        theme = "agnoster";
         # theme = "gentoo";
         # theme = "af-magic";
       };
