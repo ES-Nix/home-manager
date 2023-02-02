@@ -27,6 +27,7 @@
     #tdesktop
     #vlc
     vscodium
+    mesa
 
     xorg.xclock
     hello
@@ -39,6 +40,8 @@
     #
     # nix
 
+    pciutils # lspci and others
+    coreboot-utils
     coreutils
     binutils
     utillinux
