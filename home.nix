@@ -51,6 +51,7 @@
 
     zsh-nix-shell
     zsh-powerlevel10k
+    zsh-powerlevel9k
     zsh-syntax-highlighting
     # zsh-completions-latest
 
