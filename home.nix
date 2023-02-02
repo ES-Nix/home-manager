@@ -187,6 +187,14 @@
   # initExtraBeforeCompInit = ''eval "$(direnv hook zsh)"'';
   autocd = true;
 
+#    sessionVariables = {
+#      EDITOR = "nvim";
+#      DEFAULT_USER = "ivan";
+#      ZSH_AUTOSUGGEST_USE_ASYNC="true";
+#      ZSH_AUTOSUGGEST_MANUAL_REBIND="true";
+#      PROMPT="|%F{153}%n@%m%f|%F{174}%1~%f> ";
+#    };
+
   historySubstringSearch.enable = true;
     history = {
       save = 50000;
@@ -221,12 +229,16 @@
             "vi-mode"
             "vim-interaction"
             "zsh-navigation-tools"
+            "man"
+            "colored-man-pages"
+            "pass"
+            "python"
         ];
         # theme = "robbyrussell";
         # theme = "bira";
         # theme = "powerlevel9k/powerlevel9k";
         # theme = "agnoster";
-        theme = "gallois";
+        # theme = "gallois";
         # theme = "gentoo";
         # theme = "af-magic";
       };
