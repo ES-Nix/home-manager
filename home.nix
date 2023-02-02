@@ -33,9 +33,9 @@
 
     mesa
     mesa_drivers
-    linuxPackages.nvidia_x11
-    cudatoolkit
-    cudatoolkit.lib
+    # linuxPackages.nvidia_x11
+    # cudatoolkit
+    # cudatoolkit.lib
     mpi
 
     xorg.xclock
