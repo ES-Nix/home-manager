@@ -20,6 +20,9 @@ Enabling flakes and some other stuff:
 NIX_RELEASE_VERSION=2.10.2 \
 && curl -L https://releases.nixos.org/nix/nix-"${NIX_RELEASE_VERSION}"/install | sh -s -- --no-daemon
 
+. "$HOME"/.nix-profile/etc/profile.d/nix.sh
+nix --version
+
 nix \
 profile \
 install \
@@ -43,7 +46,7 @@ profile \
 remove \
 "$(nix eval --raw nixpkgs#busybox)"
 
-nix store gc --verbose
+# nix store gc --verbose
 systemctl status nix-daemon
 nix flake --version
 

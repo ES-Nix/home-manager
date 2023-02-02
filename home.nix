@@ -46,6 +46,10 @@
     lsof
     tree
     killall
+    man
+    man-db
+
+    zsh-completions-latest
 
 #    gcc
 #    clang
@@ -145,11 +149,22 @@
     # bashrcExtra = "echo foo-bar";
   };
 
+  home.extraOutputsToInstall = ["/share/zsh"];
+
+
+    programs.starship = {
+      enable = true;
+      enableZshIntegration = true;
+    };
+
     # https://www.reddit.com/r/NixOS/comments/fenb4u/zsh_with_ohmyzsh_with_powerlevel10k_in_nix/
     programs.zsh = {
       # Your zsh config
       enable = true;
+      enableCompletion = true;
+      dotDir = ".config/zsh";
       enableAutosuggestions = true;
+      enableSyntaxHighlighting = true;
       # promptInit = ''
       #   export POWERLEVEL9K_MODE=nerdfont-complete
       #   source ${pkgs.zsh-powerlevel9k}/share/zsh-powerlevel9k/powerlevel9k.zsh-theme
@@ -159,13 +174,44 @@
       . ~/.nix-profile/etc/profile.d/nix.sh
     fi
   '';
+
+  # initExtra = "neofetch --ascii_distro NixOS_small --color_blocks off --disable cpu gpu memory term de resolution kernel model";
+  initExtra = "${pkgs.neofetch}/bin/neofetch";
+  autocd = true;
+
+  historySubstringSearch.enable = true;
+    history = {
+      save = 50000;
+      size = 50000;
+      path = "$HOME/.cache/zsh_history";
+      expireDuplicatesFirst = true;
+    };
       oh-my-zsh = {
         enable = true;
-        plugins = [ "git" "thefuck" ];
+        plugins = [
+          "git"
+          "thefuck"
+          "sudo"
+          "colorize"
+          "docker-compose"
+          "ripgrep"
+          "tmux"
+        ];
         theme = "robbyrussell";
+        # theme = "bira";
         # theme = "powerlevel9k/powerlevel9k";
         # theme = "gentoo";
+        # theme = "af-magic";
       };
+
+#       zplug = {
+#         enable = true;
+#         plugins = [
+#           { name = "romkatv/powerlevel10k"; tags = [ as:theme depth:1 ]; }
+#         # Installations with additional options. For the list of options,
+#         # please refer to Zplug README.
+#         ];
+#       };
     };
 
 #  programs.starship = {
@@ -1091,10 +1137,12 @@
     nix-direnv = {
       enable = true;
     };
+    enableZshIntegration = true;
   };
 
   programs.fzf = {
     enable = true;
+    enableZshIntegration = true;
     # enableBashIntegration = true;
     # enableFishIntegration = true;
   };
