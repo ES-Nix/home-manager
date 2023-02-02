@@ -26,7 +26,7 @@
           {
             home = {
               inherit username;
-              homeDirectory = "/Users/${username}";
+              homeDirectory = "/home/${username}";
               stateVersion = "22.11";
 
               activation.test = home-manager.lib.hm.dag.entryAfter ["writeBoundary"] ''

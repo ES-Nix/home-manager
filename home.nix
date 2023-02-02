@@ -4,8 +4,8 @@
 
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
-  home.username = "ubuntu";
-  home.homeDirectory = pkgs.lib.mkForce "/home/ubuntu";
+  # home.username = "ubuntu";
+  # home.homeDirectory = "/home/ubuntu";
 
   home.packages = with pkgs; [
     # Graphical packages
