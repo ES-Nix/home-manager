@@ -169,10 +169,10 @@
       dotDir = ".config/zsh";
       enableAutosuggestions = true;
       enableSyntaxHighlighting = true;
-      # promptInit = ''
-      #   export POWERLEVEL9K_MODE=nerdfont-complete
-      #   source ${pkgs.zsh-powerlevel9k}/share/zsh-powerlevel9k/powerlevel9k.zsh-theme
-      # '';
+       promptInit = ''
+         export POWERLEVEL9K_MODE=nerdfont-complete
+         source ${pkgs.zsh-powerlevel9k}/share/zsh-powerlevel9k/powerlevel9k.zsh-theme
+       '';
   envExtra = ''
     if [ -e ~/.nix-profile/etc/profile.d/nix.sh ]; then
       . ~/.nix-profile/etc/profile.d/nix.sh
