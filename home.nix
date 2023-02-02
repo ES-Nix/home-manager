@@ -20,7 +20,7 @@
     #keepassxc
     #kolourpaint
     #libreoffice
-    #obsidian
+    obsidian
     #okular
     #peek
     #spotify
