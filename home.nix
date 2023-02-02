@@ -9,24 +9,24 @@
 
   home.packages = with pkgs; [
     # Graphical packages
-    brave
-    dbeaver
-    discord
-    gimp
-    gitkraken
-    inkscape
-    insomnia
-    jetbrains.pycharm-community
-    keepassxc
-    kolourpaint
-    libreoffice
-    obsidian
-    okular
-    peek
-    spotify
-    tdesktop
-    vlc
-    vscodium
+    #brave
+    #dbeaver
+    #discord
+    #gimp
+    #gitkraken
+    #inkscape
+    #insomnia
+    #jetbrains.pycharm-community
+    #keepassxc
+    #kolourpaint
+    #libreoffice
+    #obsidian
+    #okular
+    #peek
+    #spotify
+    #tdesktop
+    #vlc
+    #vscodium
 
     xorg.xclock
     hello
@@ -67,11 +67,11 @@
     oh-my-zsh
     # zsh-completions-latest
 
-    gcc
-    clang
-    rustc
-    python3Full
-    julia-bin
+#    gcc
+#    clang
+#    rustc
+#    python3Full
+#    julia-bin
 
     graphviz # dot command comes from here
     jq
@@ -88,12 +88,12 @@
     openssh
 
 
-    podman
-    runc
-    skopeo
-    conmon
-    slirp4netns
-    shadow
+#    podman
+#    runc
+#    skopeo
+#    conmon
+#    slirp4netns
+#    shadow
 
      (
        writeScriptBin "ix" ''
@@ -1238,6 +1238,10 @@
     # enableBashIntegration = true;
   };
 
+  programs.vscode = {
+      enable = true;
+      package = pkgs.vscode;
+  };
 #  programs.vscode = {
 #      enable = true;
 #      package = pkgs.vscode;
