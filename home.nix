@@ -265,7 +265,7 @@
             "z"
             "zsh-navigation-tools"
         ];
-        theme = "robbyrussell";
+        # theme = "robbyrussell";
         # theme = "bira";
         # theme = "powerlevel10k";
         # theme = "powerlevel9k/powerlevel9k";
