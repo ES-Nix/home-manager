@@ -285,11 +285,6 @@
       };
     };
 
-  programs.chromium = {
-    enable = true;
-    package = pkgs.brave;
-  };
-
 #  programs.starship = {
 #    enable = true;
 #    enableZshIntegration = true;
@@ -1273,6 +1268,11 @@
 #      userSettings = {
 #          "terminal.integrated.fontFamily" = "Hack";
 #      };
+#  };
+
+#  programs.chromium = {
+#    enable = true;
+#    package = pkgs.brave;
 #  };
 
   # programs.firefox = {

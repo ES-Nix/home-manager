@@ -63,6 +63,7 @@ nix flake clone github:ES-Nix/home-manager --dest "${DESTINATION_FOLDER}"
 #mv ~/.bashrc ~/.bashrc.bk
 
 export NIXPKGS_ALLOW_UNFREE=1; $(nix build --impure --print-out-paths "${DESTINATION_FOLDER}"#homeConfigurations.$USER.activationPackage)/activate
+
 echo /home/$USER/.nix-profile/bin/zsh | sudo tee -a /etc/shells
 sudo usermod -s /home/$USER/.nix-profile/bin/zsh $USER
 ```
