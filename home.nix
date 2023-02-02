@@ -52,6 +52,7 @@
     killall
     nmap
     netcat
+    tmate
     traceroute
     man
     man-db
