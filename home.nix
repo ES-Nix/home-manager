@@ -1277,6 +1277,14 @@
     enable = true;
   };
 
+   programs.firefox = {
+     enable = true;
+   };
+
+   programs.brave = {
+     enable = true;
+   };
+
   # programs.firefox = {
   #   enable = true;
   #   profiles = {
