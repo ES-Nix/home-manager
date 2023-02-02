@@ -51,9 +51,11 @@
     tree
     killall
     nmap
+    netcat
+    traceroute
     man
     man-db
-    (aspellWithDicts(d: with d; [ de en ]))
+    (aspellWithDicts(d: with d; [ de en pt_BR ])) # nix repl --expr 'import <nixpkgs> {}' <<<'builtins.attrNames aspellDicts' | tr ' ' '\n'
     gnome.simple-scan
     imagemagick
     nix-prefetch-git
