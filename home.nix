@@ -1275,7 +1275,6 @@
 
   programs.chromium = {
     enable = true;
-    package = pkgs.brave;
   };
 
   # programs.firefox = {
