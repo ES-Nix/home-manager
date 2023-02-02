@@ -1233,10 +1233,10 @@
     # enableBashIntegration = true;
   };
 
-  programs.vscode = {
-      enable = true;
-      package = pkgs.vscode;
-  };
+#  programs.vscode = {
+#      enable = true;
+#      package = pkgs.vscode;
+#  };
 #  programs.vscode = {
 #      enable = true;
 #      package = pkgs.vscode;
