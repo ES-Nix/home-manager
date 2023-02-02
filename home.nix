@@ -218,6 +218,8 @@
       # initExtraBeforeCompInit = ''eval "$(direnv hook zsh)"'';
       autocd = true;
 
+       # > closed and reopened the terminal. Then it worked.
+       # https://discourse.nixos.org/t/home-manager-doesnt-seem-to-recognize-sessionvariables/8488/8
        sessionVariables = {
          # EDITOR = "nvim";
          # DEFAULT_USER = "foo-bar";

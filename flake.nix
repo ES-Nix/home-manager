@@ -24,6 +24,9 @@
           # "${pkgs.path}/nixos/modules/virtualisation/qemu-vm.nix"
 
           {
+            # nix repl --expr 'import <nixpkgs> {}'
+            # :lf .#
+            # :p homeConfigurations.ubuntu.config.nixpkgs
             home = {
               inherit username;
               homeDirectory = "/home/${username}";
