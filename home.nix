@@ -88,12 +88,12 @@
     openssh
 
 
-#    podman
-#    runc
-#    skopeo
-#    conmon
-#    slirp4netns
-#    shadow
+    podman
+    runc
+    skopeo
+    conmon
+    slirp4netns
+    shadow
 
      (
        writeScriptBin "ix" ''
