@@ -26,7 +26,7 @@
     #spotify
     #tdesktop
     #vlc
-    #vscodium
+    vscodium
 
     xorg.xclock
     hello
@@ -1235,10 +1235,6 @@
     # enableBashIntegration = true;
   };
 
-  programs.vscodium = {
-      enable = true;
-      package = pkgs.vscodium;
-  };
 
 #  programs.vscode = {
 #      enable = true;
