@@ -218,13 +218,16 @@
       # initExtraBeforeCompInit = ''eval "$(direnv hook zsh)"'';
       autocd = true;
 
-      # sessionVariables = {
-      #   EDITOR = "nvim";
-      #   DEFAULT_USER = "ivan";
-      #   ZSH_AUTOSUGGEST_USE_ASYNC="true";
-      #   ZSH_AUTOSUGGEST_MANUAL_REBIND="true";
-      #   PROMPT="|%F{153}%n@%m%f|%F{174}%1~%f> ";
-      # };
+       sessionVariables = {
+         # EDITOR = "nvim";
+         # DEFAULT_USER = "foo-bar";
+         # ZSH_AUTOSUGGEST_USE_ASYNC="true";
+         # ZSH_AUTOSUGGEST_MANUAL_REBIND="true";
+         # PROMPT="|%F{153}%n@%m%f|%F{174}%1~%f> ";
+         FONTCONFIG_FILE = "${pkgs.fontconfig.out}/etc/fonts/fonts.conf";
+         FONTCONFIG_PATH = "${pkgs.fontconfig.out}/etc/fonts/";
+       };
+
       historySubstringSearch.enable = true;
 
       history = {
