@@ -70,7 +70,7 @@
     netcat
     tmate
     strace
-    ptrace
+    # ptrace
     traceroute
     man
     man-db
