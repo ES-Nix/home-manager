@@ -32,8 +32,11 @@
 
     # sudo $(which lshw) -C display
     # sudo dmesg | grep drm
+    # glxgears -info
+    # lspci | grep -i vga
     mesa
     mesa-demos
+    # libglvnd # find / -name 'libGL.so' 2>/dev/null
     mesa_drivers
     # linuxPackages.nvidia_x11
     # cudatoolkit
