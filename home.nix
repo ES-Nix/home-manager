@@ -9,26 +9,26 @@
 
   home.packages = with pkgs; [
     # Graphical packages
-    #brave
-    #dbeaver
-    #discord
-    #gimp
-    #gitkraken
-    #inkscape
-    #insomnia
-    #postman
-    #jetbrains.pycharm-community
-    #keepassxc
-    #kolourpaint
-    #libreoffice
-    #obsidian
-    #okular
-    #peek
-    #spotify
-    #tdesktop
-    #vlc
-    #vscodium
-    #blender
+    brave
+    dbeaver
+    discord
+    gimp
+    gitkraken
+    inkscape
+    insomnia
+    postman
+    jetbrains.pycharm-community
+    keepassxc
+    kolourpaint
+    libreoffice
+    obsidian
+    okular
+    peek
+    spotify
+    tdesktop
+    vlc
+    vscodium
+    blender
 
     # sudo $(which lshw) -C display
     # sudo dmesg | grep drm
