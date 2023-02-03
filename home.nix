@@ -30,8 +30,10 @@
     vscodium
     blender
 
-
+    # sudo $(which lshw) -C display
+    # sudo dmesg | grep drm
     mesa
+    mesa-demos
     mesa_drivers
     # linuxPackages.nvidia_x11
     # cudatoolkit
@@ -56,7 +58,8 @@
     utillinux
     glibc.bin
     patchelf
-    glxinfo
+    gparted
+    # glxinfo
     file
     findutils
     gnugrep
