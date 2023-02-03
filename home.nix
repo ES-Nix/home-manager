@@ -34,14 +34,16 @@
     # sudo dmesg | grep drm
     # glxgears -info
     # lspci | grep -i vga
-    mesa
+    # mesa
     mesa-demos
-    # libglvnd # find / -name 'libGL.so' 2>/dev/null
+    libglvnd # find / -name 'libGL.so' 2>/dev/null
+    vulkan-loader
+    vulkan-headers
     mesa_drivers
     # linuxPackages.nvidia_x11
     # cudatoolkit
     # cudatoolkit.lib
-    mpi
+    # mpi
 
     xorg.xclock
     hello
