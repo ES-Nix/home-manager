@@ -21,14 +21,14 @@
     #keepassxc
     #kolourpaint
     #libreoffice
-    obsidian
+    #obsidian
     #okular
     #peek
     #spotify
     #tdesktop
     #vlc
-    vscodium
-    blender
+    #vscodium
+    #blender
 
     # sudo $(which lshw) -C display
     # sudo dmesg | grep drm
@@ -36,10 +36,10 @@
     # lspci | grep -i vga
     # mesa
     mesa-demos
-    libglvnd # find / -name 'libGL.so' 2>/dev/null
-    vulkan-loader
-    vulkan-headers
-    mesa_drivers
+    # libglvnd # find / -name 'libGL.so' 2>/dev/null
+    # vulkan-loader
+    # vulkan-headers
+    # mesa_drivers
     # linuxPackages.nvidia_x11
     # cudatoolkit
     # cudatoolkit.lib
