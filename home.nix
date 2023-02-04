@@ -155,17 +155,18 @@
      # What about github:NixOS/nix#nix-static can it be injected here? What would break?
      # package = pkgs.pkgsStatic.nix;
      package = pkgs.nix;
+     # Could be useful:
+     # export NIX_CONFIG='extra-experimental-features = nix-command flakes'
+     extraOptions = ''
+       experimental-features = nix-command flakes
+     '';
+
     settings = {
                   # use-sandbox = true;
                   show-trace = true;
                   system-features = [ "big-parallel" "kvm" "recursive-nix" "nixos-test" ];
                  keep-outputs = true;
                  keep-derivations = true;
-
-
-                # extraOptions = ''
-                #   experimental-features = nix-command flakes
-                # '';
                 # readOnlyStore = true;
                 };
   };

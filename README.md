@@ -77,7 +77,7 @@ sudo usermod -s /home/$USER/.nix-profile/bin/zsh $USER
 
 nix-shell -p nix home-manager
 
-
+export NIX_CONFIG='extra-experimental-features = nix-command flakes'
 
 
 ```bash
