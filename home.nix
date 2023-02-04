@@ -54,7 +54,7 @@
 
 
     #
-    # nix
+    nix
 
     pciutils # lspci and others
     coreboot-utils
@@ -149,6 +149,29 @@
 
   # https://github.com/nix-community/home-manager/blob/782cb855b2f23c485011a196c593e2d7e4fce746/modules/targets/generic-linux.nix
   targets.genericLinux.enable = true;
+
+  home.nix = {
+    enable = true;
+    settings = {
+                  use-sandbox = true;
+                  show-trace = true;
+                  system-features = [ "big-parallel" "kvm" "recursive-nix" "nixos-test" ];
+                 keep-outputs = true;
+                 keep-derivations = true;
+
+                 # What about github:NixOS/nix#nix-static can it be injected here? What would break?
+                 # package = pkgs.pkgsStatic.nix;
+                extraOptions = ''
+                  experimental-features = nix-command flakes
+                '';
+                # readOnlyStore = true;
+                };
+  };
+
+  home.nixpkgs.config = {
+                            allowBroken = false;
+                            allowUnfree = true;
+  };
 
   # https://beb.ninja/post/installing-podman/
   home.file."registries.conf" = {

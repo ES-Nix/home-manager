@@ -58,11 +58,13 @@ mkdir -p "${DESTINATION_FOLDER}"
 cd "${DESTINATION_FOLDER}"
 nix flake clone github:ES-Nix/home-manager --dest "${DESTINATION_FOLDER}"
 
+nix-shell -p nix home-manager
+
 
 #mv ~/.profile ~/.profile.bk
 #mv ~/.bashrc ~/.bashrc.bk
 
-export NIXPKGS_ALLOW_UNFREE=1; $(nix build --impure --print-out-paths "${DESTINATION_FOLDER}"#homeConfigurations.$USER.activationPackage)/activate
+# export NIXPKGS_ALLOW_UNFREE=1; $(nix build --impure --print-out-paths "${DESTINATION_FOLDER}"#homeConfigurations.$USER.activationPackage)/activate
 
 echo /home/$USER/.nix-profile/bin/zsh | sudo tee -a /etc/shells
 sudo usermod -s /home/$USER/.nix-profile/bin/zsh $USER
@@ -72,6 +74,10 @@ sudo usermod -s /home/$USER/.nix-profile/bin/zsh $USER
 echo /home/$USER/.nix-profile/bin/zsh | sudo tee -a /etc/shells
 sudo usermod -s /home/$USER/.nix-profile/bin/zsh $USER
 ```
+
+nix-shell -p nix home-manager
+
+
 
 
 ```bash
