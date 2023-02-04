@@ -23,33 +23,34 @@ NIX_RELEASE_VERSION=2.10.2 \
 . "$HOME"/.nix-profile/etc/profile.d/nix.sh
 nix --version
 
-nix \
-profile \
-install \
-nixpkgs#busybox \
---option \
-experimental-features 'nix-command flakes'
+#nix \
+#profile \
+#install \
+#nixpkgs#busybox \
+#--option \
+#experimental-features 'nix-command flakes'
+#
+#
+#busybox test -d ~/.config/nix || busybox mkdir -p -m 0755 ~/.config/nix \
+#&& busybox grep 'nixos' ~/.config/nix/nix.conf 1> /dev/null 2> /dev/null || busybox echo 'system-features = benchmark big-parallel kvm nixos-test' >> ~/.config/nix/nix.conf \
+#&& busybox grep 'flakes' ~/.config/nix/nix.conf 1> /dev/null 2> /dev/null || busybox echo 'experimental-features = nix-command flakes' >> ~/.config/nix/nix.conf \
+#&& busybox grep 'trace' ~/.config/nix/nix.conf 1> /dev/null 2> /dev/null || busybox echo 'show-trace = true' >> ~/.config/nix/nix.conf \
+#&& busybox test -d ~/.config/nixpkgs || busybox mkdir -p -m 0755 ~/.config/nixpkgs \
+#&& busybox grep 'allowUnfree' ~/.config/nixpkgs/config.nix 1> /dev/null 2> /dev/null || busybox echo '{ allowUnfree = true; android_sdk.accept_license = true; }' >> ~/.config/nixpkgs/config.nix
+#
+#
+#echo 'PATH="$HOME"/.nix-profile/bin:"$PATH"' >> ~/."$(busybox basename $SHELL)"rc && . ~/."$( busybox basename $SHELL)"rc
+#
+#nix \
+#profile \
+#remove \
+#"$(nix eval --raw nixpkgs#busybox)"
+#
+## nix store gc --verbose
+#systemctl status nix-daemon
+#nix flake --version
 
-
-busybox test -d ~/.config/nix || busybox mkdir -p -m 0755 ~/.config/nix \
-&& busybox grep 'nixos' ~/.config/nix/nix.conf 1> /dev/null 2> /dev/null || busybox echo 'system-features = benchmark big-parallel kvm nixos-test' >> ~/.config/nix/nix.conf \
-&& busybox grep 'flakes' ~/.config/nix/nix.conf 1> /dev/null 2> /dev/null || busybox echo 'experimental-features = nix-command flakes' >> ~/.config/nix/nix.conf \
-&& busybox grep 'trace' ~/.config/nix/nix.conf 1> /dev/null 2> /dev/null || busybox echo 'show-trace = true' >> ~/.config/nix/nix.conf \
-&& busybox test -d ~/.config/nixpkgs || busybox mkdir -p -m 0755 ~/.config/nixpkgs \
-&& busybox grep 'allowUnfree' ~/.config/nixpkgs/config.nix 1> /dev/null 2> /dev/null || busybox echo '{ allowUnfree = true; android_sdk.accept_license = true; }' >> ~/.config/nixpkgs/config.nix
-
-
-echo 'PATH="$HOME"/.nix-profile/bin:"$PATH"' >> ~/."$(busybox basename $SHELL)"rc && . ~/."$( busybox basename $SHELL)"rc
-
-nix \
-profile \
-remove \
-"$(nix eval --raw nixpkgs#busybox)"
-
-# nix store gc --verbose
-systemctl status nix-daemon
-nix flake --version
-
+export NIX_CONFIG='extra-experimental-features = nix-command flakes'
 
 
 DESTINATION_FOLDER="$HOME/.config/nixpkgs"
@@ -58,8 +59,10 @@ mkdir -p "${DESTINATION_FOLDER}"
 cd "${DESTINATION_FOLDER}"
 nix flake clone github:ES-Nix/home-manager --dest "${DESTINATION_FOLDER}"
 
-nix-shell -p nix home-manager
+# nix-shell -p nix home-manager
 
+
+nix shell nixpkgs#{nix,home-manager} --command sh -c 'nix profile remove 0 && home-manager switch'
 
 #mv ~/.profile ~/.profile.bk
 #mv ~/.bashrc ~/.bashrc.bk
@@ -95,6 +98,14 @@ export NIXPKGS_ALLOW_UNFREE=1; home-manager switch --impure
 ```bash
 export NIXPKGS_ALLOW_UNFREE=1; home-manager switch --impure -b backup
 ```
+
+github:NixOS/nixpkgs/release-20.03
+github:NixOS/nixpkgs/release-20.09
+github:NixOS/nixpkgs/release-21.05
+github:NixOS/nixpkgs/release-21.11
+github:NixOS/nixpkgs/release-22.05
+github:NixOS/nixpkgs/release-22.11
+github:NixOS/nixpkgs
 
 ```bash
 sudo chmod -v 4511 "$HOME"/.nix-profile/bin/new{u,g}idmap
