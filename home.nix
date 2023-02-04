@@ -156,16 +156,16 @@
      # package = pkgs.pkgsStatic.nix;
      package = pkgs.nix;
     settings = {
-                  use-sandbox = true;
+                  # use-sandbox = true;
                   show-trace = true;
                   system-features = [ "big-parallel" "kvm" "recursive-nix" "nixos-test" ];
                  keep-outputs = true;
                  keep-derivations = true;
 
 
-                extraOptions = ''
-                  experimental-features = nix-command flakes
-                '';
+                # extraOptions = ''
+                #   experimental-features = nix-command flakes
+                # '';
                 # readOnlyStore = true;
                 };
   };
