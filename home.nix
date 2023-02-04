@@ -152,6 +152,9 @@
 
   nix = {
     enable = true;
+     # What about github:NixOS/nix#nix-static can it be injected here? What would break?
+     # package = pkgs.pkgsStatic.nix;
+     package = pkgs.nix;
     settings = {
                   use-sandbox = true;
                   show-trace = true;
@@ -159,9 +162,7 @@
                  keep-outputs = true;
                  keep-derivations = true;
 
-                 # What about github:NixOS/nix#nix-static can it be injected here? What would break?
-                 # package = pkgs.pkgsStatic.nix;
-                 package = pkgs.nix;
+
                 extraOptions = ''
                   experimental-features = nix-command flakes
                 '';
