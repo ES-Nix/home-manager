@@ -4,7 +4,7 @@
   inputs = {
     # Specify the source of Home Manager and Nixpkgs
     home-manager.url = "github:nix-community/home-manager";
-    nixpkgs.url = "github:NixOS/nixpkgs/release-22.05";
+    nixpkgs.url = "github:NixOS/nixpkgs/release-22.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
@@ -30,7 +30,7 @@
             home = {
               inherit username;
               homeDirectory = "/home/${username}";
-              stateVersion = "22.05";
+              stateVersion = "22.11";
 
 #              activation.test = home-manager.lib.hm.dag.entryAfter ["writeBoundary"] ''
 #                # set -x
