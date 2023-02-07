@@ -5,7 +5,8 @@
     # Specify the source of Home Manager and Nixpkgs
     home-manager.url = "github:nix-community/home-manager";
     # nixpkgs.url = "github:NixOS/nixpkgs/release-22.11";
-    nixpkgs.url = "github:NixOS/nixpkgs/b7ce17b1ebf600a72178f6302c77b6382d09323f";
+    # nixpkgs.url = "github:NixOS/nixpkgs/b7ce17b1ebf600a72178f6302c77b6382d09323f";
+    nixpkgs.url = "github:NixOS/nixpkgs/5dc2630125007bc3d08381aebbf09ea99ff4e747";
 
     # nixpkgs.url = "github:NixOS/nixpkgs/release-22.05";
     # nixpkgs.url = "github:NixOS/nixpkgs/0874168639713f547c05947c76124f78441ea46c";

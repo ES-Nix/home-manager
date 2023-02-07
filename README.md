@@ -111,6 +111,55 @@ github:NixOS/nixpkgs/release-22.11
 github:NixOS/nixpkgs
 
 ```bash
+# Wires the local nixpkgs clone input insteade
+# nix flake update --override-input nixpkgs ~/nixpkgs ~/.config/nixpkgs#
+
+
+#nix flake ~/.config/nixpkgs/ update --override-input nixpkgs github:NixOS/nixpkgs/"$(git rev-parse HEAD)" \
+#&& home-manager switch --flake ~/.config/nixpkgs/
+
+git bisect start
+
+# git checkout master
+git checkout 8304c7138e62d3223c5cbc9429806fc6eb04e210
+
+
+# Oldest that still working
+git checkout e912c7bfe93426c91d54662b1d98a18a08a50e57
+
+git checkout HEAD~4901
+git checkout HEAD~4902
+git checkout HEAD~4925
+
+nix flake update --override-input nixpkgs ~/nixpkgs ~/.config/nixpkgs# \
+&& home-manager switch --flake ~/.config/nixpkgs/
+
+git bisect good
+
+
+
+# git checkout 0874168639713f547c05947c76124f78441ea46c
+git checkout 5dc2630125007bc3d08381aebbf09ea99ff4e747
+
+nix flake update --override-input nixpkgs ~/nixpkgs ~/.config/nixpkgs# \
+&& home-manager switch --flake ~/.config/nixpkgs/
+
+git bisect bad
+
+
+git bisect run $(nix flake update --override-input nixpkgs ~/nixpkgs ~/.config/nixpkgs# \
+&& home-manager switch --flake ~/.config/nixpkgs/)
+```
+
+```bash
+git bisect reset
+```
+
+```bash
+git log 5dc2630125007bc3d08381aebbf09ea99ff4e747..8304c7138e62d3223c5cbc9429806fc6eb04e210 --oneline | wc -l
+```
+
+```bash
 sudo chmod -v 4511 "$HOME"/.nix-profile/bin/new{u,g}idmap
 podman ps
 ```
