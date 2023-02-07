@@ -35,7 +35,7 @@
     # glxgears -info
     # lspci | grep -i vga
     # mesa
-    mesa-demos
+    # mesa-demos
     # libglvnd # find / -name 'libGL.so' 2>/dev/null
     # vulkan-loader
     # vulkan-headers
