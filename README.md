@@ -62,7 +62,8 @@ nix flake clone github:ES-Nix/home-manager --dest "${DESTINATION_FOLDER}"
 # nix-shell -p nix home-manager
 
 
-nix shell nixpkgs#{nix,home-manager} --command sh -c 'nix profile remove 0 && home-manager switch'
+# nix shell nixpkgs#{nix,home-manager} --command sh -c 'nix profile remove 0 && home-manager switch'
+nix shell github:NixOS/nixpkgs/release-22.05#{nix,home-manager} --command sh -c 'nix profile remove 0 && home-manager switch'
 
 #mv ~/.profile ~/.profile.bk
 #mv ~/.bashrc ~/.bashrc.bk
