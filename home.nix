@@ -56,84 +56,84 @@
     #
     nix
 
-    pciutils # lspci and others
-    coreboot-utils
-    coreutils
-    binutils
-    utillinux
-    glibc.bin
-    patchelf
-    gparted
-    # glxinfo
-    file
-    findutils
-    gnugrep
-    gnumake
-    gnused
-    gawk
-    hexdump
-    which
-    xz
-    exfat
-    procps
-    curl
-    wget
-    lsof
-    tree
-    killall
-    nmap
-    netcat
-    tmate
-    strace
-    # ptrace
-    traceroute
-    man
-    man-db
-    (aspellWithDicts(d: with d; [ de en pt_BR ])) # nix repl --expr 'import <nixpkgs> {}' <<<'builtins.attrNames aspellDicts' | tr ' ' '\n'
-    gnome.simple-scan
-    imagemagick
-    nix-prefetch-git
-    nixfmt
-    shellcheck
-
-    fontconfig
-    fira
-    source-sans
-    aurulent-sans
-    lato
-    liberation_ttf
-    montserrat
-    (nerdfonts.override { fonts = [ "FiraCode"]; })
-
-    zsh-nix-shell
-    zsh-powerlevel10k
-    zsh-powerlevel9k
-    zsh-syntax-highlighting
-    oh-my-zsh
-    # zsh-completions-latest
-
-#    gcc
-#    gdb
-#    clang
-#    rustc
-#    python3Full
-#    julia-bin
-
-    graphviz # dot command comes from here
-    jq
-    unixtools.xxd
-
-    gzip
-    # unrar
-    unzip
-
-    btop
-    htop
-    asciinema
-    git
-    openssh
-
-    #podman
+#    pciutils # lspci and others
+#    coreboot-utils
+#    coreutils
+#    binutils
+#    utillinux
+#    glibc.bin
+#    patchelf
+#    gparted
+#    # glxinfo
+#    file
+#    findutils
+#    gnugrep
+#    gnumake
+#    gnused
+#    gawk
+#    hexdump
+#    which
+#    xz
+#    exfat
+#    procps
+#    curl
+#    wget
+#    lsof
+#    tree
+#    killall
+#    nmap
+#    netcat
+#    tmate
+#    strace
+#    # ptrace
+#    traceroute
+#    man
+#    man-db
+#    (aspellWithDicts(d: with d; [ de en pt_BR ])) # nix repl --expr 'import <nixpkgs> {}' <<<'builtins.attrNames aspellDicts' | tr ' ' '\n'
+#    gnome.simple-scan
+#    imagemagick
+#    nix-prefetch-git
+#    nixfmt
+#    shellcheck
+#
+#    fontconfig
+#    fira
+#    source-sans
+#    aurulent-sans
+#    lato
+#    liberation_ttf
+#    montserrat
+#    (nerdfonts.override { fonts = [ "FiraCode"]; })
+#
+#    zsh-nix-shell
+#    zsh-powerlevel10k
+#    zsh-powerlevel9k
+#    zsh-syntax-highlighting
+#    oh-my-zsh
+#    # zsh-completions-latest
+#
+##    gcc
+##    gdb
+##    clang
+##    rustc
+##    python3Full
+##    julia-bin
+#
+#    graphviz # dot command comes from here
+#    jq
+#    unixtools.xxd
+#
+#    gzip
+#    # unrar
+#    unzip
+#
+#    btop
+#    htop
+#    asciinema
+#    git
+#    openssh
+#
+#    #podman
     #runc
     #skopeo
     #conmon
