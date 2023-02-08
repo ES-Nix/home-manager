@@ -58,6 +58,8 @@
 
 #    pciutils # lspci and others
 #    coreboot-utils
+     ## TODO: testar com o zsh
+#    bashInteractive # https://www.reddit.com/r/NixOS/comments/zx4kmh/alpinewsl_home_manager_bash_issue/
 #    coreutils
 #    binutils
 #    utillinux
