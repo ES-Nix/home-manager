@@ -17,49 +17,25 @@ NIX_RELEASE_VERSION=2.10.2 \
 
 Enabling flakes and some other stuff:
 ```bash
+command -v curl || command -v apt && sudo apt-get update && sudo apt-get install -y curl
+command -v git || command -v apt && sudo apt-get update && sudo apt-get install -y git
+
 NIX_RELEASE_VERSION=2.10.2 \
 && curl -L https://releases.nixos.org/nix/nix-"${NIX_RELEASE_VERSION}"/install | sh -s -- --no-daemon
 
 . "$HOME"/.nix-profile/etc/profile.d/nix.sh
 nix --version
 
-#nix \
-#profile \
-#install \
-#nixpkgs#busybox \
-#--option \
-#experimental-features 'nix-command flakes'
-#
-#
-#busybox test -d ~/.config/nix || busybox mkdir -p -m 0755 ~/.config/nix \
-#&& busybox grep 'nixos' ~/.config/nix/nix.conf 1> /dev/null 2> /dev/null || busybox echo 'system-features = benchmark big-parallel kvm nixos-test' >> ~/.config/nix/nix.conf \
-#&& busybox grep 'flakes' ~/.config/nix/nix.conf 1> /dev/null 2> /dev/null || busybox echo 'experimental-features = nix-command flakes' >> ~/.config/nix/nix.conf \
-#&& busybox grep 'trace' ~/.config/nix/nix.conf 1> /dev/null 2> /dev/null || busybox echo 'show-trace = true' >> ~/.config/nix/nix.conf \
-#&& busybox test -d ~/.config/nixpkgs || busybox mkdir -p -m 0755 ~/.config/nixpkgs \
-#&& busybox grep 'allowUnfree' ~/.config/nixpkgs/config.nix 1> /dev/null 2> /dev/null || busybox echo '{ allowUnfree = true; android_sdk.accept_license = true; }' >> ~/.config/nixpkgs/config.nix
-#
-#
-#echo 'PATH="$HOME"/.nix-profile/bin:"$PATH"' >> ~/."$(busybox basename $SHELL)"rc && . ~/."$( busybox basename $SHELL)"rc
-#
-#nix \
-#profile \
-#remove \
-#"$(nix eval --raw nixpkgs#busybox)"
-#
-## nix store gc --verbose
-#systemctl status nix-daemon
-#nix flake --version
+
 
 export NIX_CONFIG='extra-experimental-features = nix-command flakes'
 
 
-DESTINATION_FOLDER="$HOME/.config/nixpkgs"
-rm -fr "${DESTINATION_FOLDER}"
-mkdir -p "${DESTINATION_FOLDER}"
-cd "${DESTINATION_FOLDER}"
-nix flake clone github:ES-Nix/home-manager --dest "${DESTINATION_FOLDER}"
-
-# nix-shell -p nix home-manager
+DESTINATION_FOLDER="$HOME/.config/nixpkgs" \
+&& rm -fr "${DESTINATION_FOLDER}" \
+&& mkdir -p "${DESTINATION_FOLDER}" \
+&& cd "${DESTINATION_FOLDER}" \
+&& nix flake clone github:ES-Nix/home-manager --dest "${DESTINATION_FOLDER}"
 
 
 # nix shell nixpkgs#{nix,home-manager} --command sh -c 'nix profile remove 0 && home-manager switch'
@@ -68,8 +44,8 @@ nix flake clone github:ES-Nix/home-manager --dest "${DESTINATION_FOLDER}"
 nix shell github:NixOS/nixpkgs/b7ce17b1ebf600a72178f6302c77b6382d09323f#{nix,home-manager} --command sh -c 'nix profile remove 0 && home-manager switch'
 # nix shell github:NixOS/nixpkgs/5dc2630125007bc3d08381aebbf09ea99ff4e747#{nix,home-manager} --command sh -c 'nix profile remove 0 && home-manager switch'
 
-#mv ~/.profile ~/.profile.bk
-#mv ~/.bashrc ~/.bashrc.bk
+# mv ~/.profile ~/.profile.bk
+# mv ~/.bashrc ~/.bashrc.bk
 
 # export NIXPKGS_ALLOW_UNFREE=1; $(nix build --impure --print-out-paths "${DESTINATION_FOLDER}"#homeConfigurations.$USER.activationPackage)/activate
 
