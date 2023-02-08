@@ -58,9 +58,11 @@ echo /home/$USER/.nix-profile/bin/zsh | sudo tee -a /etc/shells
 sudo usermod -s /home/$USER/.nix-profile/bin/zsh $USER
 ```
 
-nix-shell -p nix home-manager
-
-export NIX_CONFIG='extra-experimental-features = nix-command flakes'
+> As to having nix in home-manager itself, it is not necessary and up to the end user. 
+> Having it in there automatically upgrades nix on new deployments, and builds it in 
+> one go when building home-manager, but it also makes initial deployment trickier, as 
+> the first time nix itself has to be uninstalled from the user environment.
+> Refs.: https://hhoeflin.github.io/nix/home_folder_nix/
 
 
 ```bash
