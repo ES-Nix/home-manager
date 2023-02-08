@@ -176,6 +176,8 @@
   nixpkgs.config = {
                             allowBroken = false;
                             allowUnfree = true;
+                            # TODO: test it
+                            # android_sdk.accept_license = true;
   };
 
   # https://beb.ninja/post/installing-podman/
