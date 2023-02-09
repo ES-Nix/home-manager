@@ -97,6 +97,8 @@
 #    imagemagick
 #    nix-prefetch-git
 #    nixfmt
+#    hydra-check
+#    nixos-option
 #    shellcheck
 #
 #    fontconfig
