@@ -41,7 +41,16 @@ DESTINATION_FOLDER="$HOME/.config/nixpkgs" \
 # nix shell nixpkgs#{nix,home-manager} --command sh -c 'nix profile remove 0 && home-manager switch'
 # nix shell github:NixOS/nixpkgs/release-22.11#{nix,home-manager} --command sh -c 'nix profile remove 0 && home-manager switch'
 # nix shell github:NixOS/nixpkgs/release-22.11#{nix,home-manager} --command sh -c 'nix profile remove 0 && home-manager switch'
-nix shell github:NixOS/nixpkgs/b7ce17b1ebf600a72178f6302c77b6382d09323f#{nix,home-manager} --command sh -c 'nix profile remove 0 && home-manager switch'
+
+nix \
+shell \
+github:NixOS/nixpkgs/b7ce17b1ebf600a72178f6302c77b6382d09323f#{nix,home-manager} \
+--command \
+sh \
+-c \
+'nix profile remove 0 && home-manager switch -b backup'
+
+
 # nix shell github:NixOS/nixpkgs/5dc2630125007bc3d08381aebbf09ea99ff4e747#{nix,home-manager} --command sh -c 'nix profile remove 0 && home-manager switch'
 
 # mv ~/.profile ~/.profile.bk
