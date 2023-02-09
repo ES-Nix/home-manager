@@ -175,22 +175,29 @@ https://discourse.nixos.org/t/replacing-docker-workflow-for-service-ops-with-nix
 
 
 ```bash
+DESTINATION_FOLDER="$HOME/.config/nixpkgs" \
+&& rm -fr "${DESTINATION_FOLDER}" \
+&& mkdir -p "${DESTINATION_FOLDER}" \
+&& cd "${DESTINATION_FOLDER}"
+
 cat << 'EOF' > ~/.config/nixpkgs/flake.nix
 {
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-22.05";
+    # nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-22.05";
+    # nixpkgs-20-03.url = "github:NixOS/nixpkgs/nixos-20.03";
+    nixpkgs-old.url = "github:NixOS/nixpkgs/nixos-21.11";
   };
 
   outputs = {
     nixpkgs,
-    nixpkgs-stable,
+    nixpkgs-old,
     home-manager,
     ...
   }: let
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
-    pkgs-stable = nixpkgs-stable.legacyPackages.${system};
+    pkgs-old = nixpkgs-old.legacyPackages.${system};
   in {
     homeConfigurations.ubuntu = home-manager.lib.homeManagerConfiguration {
       inherit pkgs;
@@ -198,7 +205,7 @@ cat << 'EOF' > ~/.config/nixpkgs/flake.nix
         ./home.nix
       ];
       extraSpecialArgs = {
-        inherit pkgs-stable;
+        inherit pkgs-old;
       };
     };
   };
@@ -209,7 +216,7 @@ EOF
 cat << 'EOF' > ~/.config/nixpkgs/home.nix
 {
   pkgs,
-  pkgs-stable,
+  pkgs-old,
   config,
   lib,
   ...
@@ -220,8 +227,11 @@ cat << 'EOF' > ~/.config/nixpkgs/home.nix
      home.homeDirectory = "/home/${username}";
      home.stateVersion = "22.05";
 
+     programs.home-manager.enable = true;
      home.packages = [
-       pkgs-stable.nix
+       # nix run github:NixOS/nixpkgs/nixos-21.11#nix_2_4 -- --version 
+       pkgs.nixVersions.nix_2_10
+       pkgs-old.hello
      ];
 
   # https://github.com/nix-community/home-manager/blob/782cb855b2f23c485011a196c593e2d7e4fce746/modules/targets/generic-linux.nix
@@ -231,7 +241,8 @@ cat << 'EOF' > ~/.config/nixpkgs/home.nix
     enable = true;
      # What about github:NixOS/nix#nix-static can it be injected here? What would break?
      # package = pkgs.pkgsStatic.nix;
-     package = pkgs.nix;
+     # package = pkgs.nix;
+     package = pkgs.nixVersions.nix_2_10;
      # Could be useful:
      # export NIX_CONFIG='extra-experimental-features = nix-command flakes'
      extraOptions = ''
@@ -256,8 +267,19 @@ cat << 'EOF' > ~/.config/nixpkgs/home.nix
   };
 }
 EOF
+
+git init \
+&& git add .
+
+nix shell github:NixOS/nixpkgs/b7ce17b1ebf600a72178f6302c77b6382d09323f#{nix,home-manager} --command sh -c 'nix profile remove 0 && home-manager switch'
+# nix shell github:NixOS/nixpkgs/5dc2630125007bc3d08381aebbf09ea99ff4e747#{nix,home-manager} --command sh -c 'nix profile remove 0 && home-manager switch'
+
 ```
 
+
+```bash
+home-manager switch --flake ~/.config/nixpkgs
+```
 
 
 ## References

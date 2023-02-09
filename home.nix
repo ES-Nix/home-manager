@@ -54,7 +54,8 @@
 
 
     #
-    nix
+    # nix
+    nixVersions.nix_2_10
 
 #    pciutils # lspci and others
 #    coreboot-utils
@@ -156,7 +157,8 @@
     enable = true;
      # What about github:NixOS/nix#nix-static can it be injected here? What would break?
      # package = pkgs.pkgsStatic.nix;
-     package = pkgs.nix;
+     # package = pkgs.nix;
+     package = pkgs.nixVersions.nix_2_10;
      # Could be useful:
      # export NIX_CONFIG='extra-experimental-features = nix-command flakes'
      extraOptions = ''
