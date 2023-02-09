@@ -17,8 +17,8 @@ NIX_RELEASE_VERSION=2.10.2 \
 
 Enabling flakes and some other stuff:
 ```bash
-command -v curl || command -v apt && sudo apt-get update && sudo apt-get install -y curl
-command -v git || command -v apt && sudo apt-get update && sudo apt-get install -y git
+command -v curl || (command -v apt && sudo apt-get update && sudo apt-get install -y curl)
+command -v git || (command -v apt && sudo apt-get update && sudo apt-get install -y git)
 
 NIX_RELEASE_VERSION=2.10.2 \
 && curl -L https://releases.nixos.org/nix/nix-"${NIX_RELEASE_VERSION}"/install | sh -s -- --no-daemon
@@ -57,6 +57,15 @@ sudo usermod -s /home/$USER/.nix-profile/bin/zsh $USER
 echo /home/$USER/.nix-profile/bin/zsh | sudo tee -a /etc/shells
 sudo usermod -s /home/$USER/.nix-profile/bin/zsh $USER
 ```
+
+```bash
+DESTINATION_FOLDER="$HOME/.config/nixpkgs"
+
+rm -rfv "$HOME"/{.nix-channels,.nix-defexpr,.nix-profile,.config/nixpkgs,.cache/nix} "$DESTINATION_FOLDER"
+
+sudo rm -fr /nix
+```
+
 
 > As to having nix in home-manager itself, it is not necessary and up to the end user. 
 > Having it in there automatically upgrades nix on new deployments, and builds it in 
@@ -159,6 +168,96 @@ Refs.:
 TODO:
 loginctl enable-linger [USER]
 https://discourse.nixos.org/t/replacing-docker-workflow-for-service-ops-with-nix/20753/2
+
+
+
+###
+
+
+```bash
+cat << 'EOF' > ~/.config/nixpkgs/flake.nix
+{
+  inputs = {
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-22.05";
+  };
+
+  outputs = {
+    nixpkgs,
+    nixpkgs-stable,
+    home-manager,
+    ...
+  }: let
+    system = "x86_64-linux";
+    pkgs = nixpkgs.legacyPackages.${system};
+    pkgs-stable = nixpkgs-stable.legacyPackages.${system};
+  in {
+    homeConfigurations.ubuntu = home-manager.lib.homeManagerConfiguration {
+      inherit pkgs;
+      modules = [
+        ./home.nix
+      ];
+      extraSpecialArgs = {
+        inherit pkgs-stable;
+      };
+    };
+  };
+}
+EOF
+
+
+cat << 'EOF' > ~/.config/nixpkgs/home.nix
+{
+  pkgs,
+  pkgs-stable,
+  config,
+  lib,
+  ...
+}: let 
+     username = "ubuntu";
+   in {
+     home.username = "${username}";
+     home.homeDirectory = "/home/${username}";
+     home.stateVersion = "22.05";
+
+     home.packages = [
+       pkgs-stable.nix
+     ];
+
+  # https://github.com/nix-community/home-manager/blob/782cb855b2f23c485011a196c593e2d7e4fce746/modules/targets/generic-linux.nix
+  targets.genericLinux.enable = true;
+
+  nix = {
+    enable = true;
+     # What about github:NixOS/nix#nix-static can it be injected here? What would break?
+     # package = pkgs.pkgsStatic.nix;
+     package = pkgs.nix;
+     # Could be useful:
+     # export NIX_CONFIG='extra-experimental-features = nix-command flakes'
+     extraOptions = ''
+       experimental-features = nix-command flakes
+     '';
+
+    settings = {
+                  # use-sandbox = true;
+                  show-trace = true;
+                  system-features = [ "big-parallel" "kvm" "recursive-nix" "nixos-test" ];
+                 keep-outputs = true;
+                 keep-derivations = true;
+                # readOnlyStore = true;
+                };
+  };
+
+  nixpkgs.config = {
+                            allowBroken = false;
+                            allowUnfree = true;
+                            # TODO: test it
+                            # android_sdk.accept_license = true;
+  };
+}
+EOF
+```
+
 
 
 ## References
