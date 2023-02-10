@@ -106,7 +106,7 @@
 #    nixos-option
 #    shellcheck
 #
-    fontconfig
+#    fontconfig
 #    fira
 #    source-sans
 #    aurulent-sans
