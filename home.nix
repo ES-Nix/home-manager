@@ -50,10 +50,10 @@
 
     xorg.xclock
     hello
-    figlet
-    cowsay
-    ponysay
-    cmatrix
+#    figlet
+#    cowsay
+#    ponysay
+#    cmatrix
 
     bashInteractive
 
