@@ -191,12 +191,6 @@
                             # android_sdk.accept_license = true;
   };
 
-  # Broken!
-  # services.docker.enable = true;
-  # pkgs.lib.fileSystems."/".neededForBoot = true;
-  # fileSystems."/".neededForBoot = true;
-  # virtualisation.podman.enable = true;
-  # services.cachix-agent = { enable = true; name = "foo-bar-cachix"; };
 
   services.systembus-notify.enable = true;
   services.spotifyd.enable = true;
@@ -214,19 +208,6 @@
     #  };
     };
   };
-
-    #programs = {
-    #    home-manager.enable = true;
-    #    gpg.enable = true;
-    #    fzf.enable = true;
-    #    jq.enable = true;
-    #    bat.enable = true;
-    #    command-not-found.enable = true;
-    #    dircolors.enable = true;
-    #    htop.enable = true;
-    #    info.enable = true;
-    #    exa.enable = true;
-    #};
 
   programs.bash = {
     enable = true;

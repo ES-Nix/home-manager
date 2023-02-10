@@ -218,3 +218,25 @@ $(nix build --impure --print-out-paths .#homeConfigurations.$USER.activationPack
 sudo chmod -v 4511 "$HOME"/.nix-profile/bin/new{u,g}idmap
 podman ps
 ```
+
+```bash
+# Broken!
+# services.docker.enable = true;
+# pkgs.lib.fileSystems."/".neededForBoot = true;
+# fileSystems."/".neededForBoot = true;
+# virtualisation.podman.enable = true;
+# services.cachix-agent = { enable = true; name = "foo-bar-cachix"; };
+
+#programs = {
+#    home-manager.enable = true;
+#    gpg.enable = true;
+#    fzf.enable = true;
+#    jq.enable = true;
+#    bat.enable = true;
+#    command-not-found.enable = true;
+#    dircolors.enable = true;
+#    htop.enable = true;
+#    info.enable = true;
+#    exa.enable = true;
+#};
+```
