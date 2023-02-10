@@ -52,6 +52,11 @@ DESTINATION_FOLDER="$HOME/.config/nixpkgs" \
 # nix shell github:NixOS/nixpkgs/release-22.11#{nix,home-manager} --command sh -c 'nix profile remove 0 && home-manager switch'
 # nix shell github:NixOS/nixpkgs/release-22.11#{nix,home-manager} --command sh -c 'nix profile remove 0 && home-manager switch'
 
+# Not so sure about it, seems like hacky
+git apply removes-nix.patch \
+&& nix build --impure --print-out-paths --no-link .#homeConfigurations.$USER.activationPackage \
+&& git apply adds-nix.patch
+
 nix \
 shell \
 github:NixOS/nixpkgs/b7ce17b1ebf600a72178f6302c77b6382d09323f#{nix,home-manager} \
