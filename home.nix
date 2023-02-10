@@ -230,7 +230,7 @@
     #};
 
   programs.bash = {
-    enable = false;
+    enable = true;
     bashrcExtra = "echo foo-bar";
   };
 

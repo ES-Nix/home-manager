@@ -59,11 +59,11 @@ git apply removes-nix.patch \
 
 nix \
 shell \
-github:NixOS/nixpkgs/b7ce17b1ebf600a72178f6302c77b6382d09323f#{nix,home-manager} \
+github:NixOS/nixpkgs/b7ce17b1ebf600a72178f6302c77b6382d09323f#{nix,home-manager,busybox} \
 --command \
 sh \
 -c \
-'nix profile remove 0 && export NIXPKGS_ALLOW_UNFREE=1; home-manager switch --impure -b backup'
+'nix profile list | xargs -r nix profile remove 0; export NIXPKGS_ALLOW_UNFREE=1; home-manager switch --impure -b backup'
 
 
 # nix shell github:NixOS/nixpkgs/5dc2630125007bc3d08381aebbf09ea99ff4e747#{nix,home-manager} --command sh -c 'nix profile remove 0 && home-manager switch'
@@ -83,18 +83,27 @@ sudo usermod -s /home/$USER/.nix-profile/bin/zsh $USER
 ```
 
 ```bash
-export NIX_CONFIG='extra-experimental-features = nix-command flakes'
+#curl -L https://hydra.nixos.org/build/"${BUILD_ID}"/download/1/nix > nix \
+#&& chmod +x nix \
+#&& ./nix flake --version
 
-BUILD_ID='183946375'
-curl -L https://hydra.nixos.org/build/"${BUILD_ID}"/download/1/nix > nix \
-&& chmod +x nix \
-&& ./nix flakes --version
-
-mkdir -pv "$HOME"/.local/bin \
+BUILD_ID='183946375' \
+&& mkdir -pv "$HOME"/.local/bin \
 && export PATH="$HOME"/.local/bin:"$PATH" \
-&& curl -L https://hydra.nixos.org/build/207340490/download/1/nix > nix \
+&& curl -L https://hydra.nixos.org/build/"${BUILD_ID}"/download/1/nix > nix \
 && mv nix "$HOME"/.local/bin \
-&& chmod +x "$HOME"/.local/bin/nix
+&& chmod +x "$HOME"/.local/bin/nix \
+&& export NIX_CONFIG='extra-experimental-features = nix-command flakes' \
+&& nix flake --version
+
+#'nix profile list | xargs -r nix profile remove 0; export NIXPKGS_ALLOW_UNFREE=1; home-manager switch --impure -b backup'
+#error: setting up a private mount namespace: Operation not permitted
+#ubuntu@ubuntu:~/.config/nixpkgs$ nix
+#error: no subcommand specified
+#Try 'nix --help' for more information.
+#ubuntu@ubuntu:~/.config/nixpkgs$ sudo poweroff 
+#sudo: /etc/sudo.conf is owned by uid 65534, should be 0
+#sudo: /usr/bin/sudo must be owned by uid 0 and have the setuid bit set
 
 ```
 
