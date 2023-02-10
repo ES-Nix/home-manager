@@ -240,7 +240,7 @@
     # https://www.reddit.com/r/NixOS/comments/fenb4u/zsh_with_ohmyzsh_with_powerlevel10k_in_nix/
     programs.zsh = {
       # Your zsh config
-      enable = true;
+      enable = false;
       enableCompletion = true;
       dotDir = ".config/zsh";
       enableAutosuggestions = true;

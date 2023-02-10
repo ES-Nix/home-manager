@@ -63,24 +63,17 @@ github:NixOS/nixpkgs/b7ce17b1ebf600a72178f6302c77b6382d09323f#{nix,home-manager,
 --command \
 sh \
 -c \
-'nix profile list | xargs -r nix profile remove 0; export NIXPKGS_ALLOW_UNFREE=1; home-manager switch --impure -b backuphm'
+'nix profile list | xargs -r nix profile remove 0; export NIXPKGS_ALLOW_UNFREE=1; home-manager switch -b backuphm --impure'
 
-
-# nix shell github:NixOS/nixpkgs/5dc2630125007bc3d08381aebbf09ea99ff4e747#{nix,home-manager} --command sh -c 'nix profile remove 0 && home-manager switch'
-
-# mv ~/.profile ~/.profile.bk
-# mv ~/.bashrc ~/.bashrc.bk
-
-# export NIXPKGS_ALLOW_UNFREE=1; $(nix build --impure --print-out-paths "${DESTINATION_FOLDER}"#homeConfigurations.$USER.activationPackage)/activate
-
-TARGET_SHELL='zsh'
-echo /home/"$USER"/.nix-profile/bin/"$TARGET_SHELL" | sudo tee -a /etc/shells
-sudo usermod -s /home/"$USER"/.nix-profile/bin/"$TARGET_SHELL" "$USER"
+#TARGET_SHELL='zsh'
+#echo /home/"$USER"/.nix-profile/bin/"$TARGET_SHELL" | sudo tee -a /etc/shells
+#sudo usermod -s /home/"$USER"/.nix-profile/bin/"$TARGET_SHELL" "$USER"
 
 TARGET_SHELL='bash'
 echo /home/"$USER"/.nix-profile/bin/"$TARGET_SHELL" | sudo tee -a /etc/shells
 sudo usermod -s /home/"$USER"/.nix-profile/bin/"$TARGET_SHELL" "$USER"
 
+# To revert to system shell
 # sudo usermod -s /bin/bash "$USER"
 ```
 
@@ -96,16 +89,27 @@ Refs.:
 
 
 ```bash
-for filename in .*.backuphm; do cp -fv "$filename" "${filename%.*}"; done
+# TODO: this is not recursive, files like 
+# $XDG_CONFIG_HOME/nix/nix.conf and/or ~/.config/nix/nix.conf and others
+# are not restored 
+# for filename in .*.backuphm; do cp -fv "$filename" "${filename%.*}"; done
+find $HOME -exec sh -c 'for filename in .*.backuphm; do test -f $filename && mv -fv "$filename" "${filename%.*}"; done' \;
 
-
+# Some broken symlinks still exists 
+# find -L $HOME -maxdepth 1 -type l -exec echo {} \; 
 find -L $HOME -maxdepth 1 -type l -exec rm -v {} \;
 
+# 
 sudo sed -i '\#/home/'"$USER"'/.nix-profile/bin/#d' /etc/shells
 
+# 
 sed \
 '/# It was inserted by the get-nix installer/,/# End of code inserted by the get-nix installer/d' \
 ~/.$(basename $SHELL)rc
+
+
+# To revert to system shell, IF IT WAS BASH AND /bin/bash exists!
+sudo usermod -s /bin/bash "$USER"
 ```
 Refs.:
 - https://stackoverflow.com/a/27658717

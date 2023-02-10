@@ -208,6 +208,10 @@ git init
 git add .
 
 $(nix build --impure --print-out-paths .#homeConfigurations.$USER.activationPackage)/activate
+
+# Fancy/custom version
+# export NIXPKGS_ALLOW_UNFREE=1; $(nix build --impure --print-out-paths "${DESTINATION_FOLDER}"#homeConfigurations.$USER.activationPackage)/activate
+
 ```
 
 ```bash
