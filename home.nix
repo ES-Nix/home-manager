@@ -1342,8 +1342,8 @@
       package = pkgs.vscode;
        # TODO:
        # https://www.reddit.com/r/NixOS/comments/ybb08b/if_i_manage_visual_studio_code_packages_via_home/
-       extensions.autoCheckUpdates = false;
-       extensions.autoUpdate = false;
+       # extensions.autoCheckUpdates = false;
+       # extensions.autoUpdate = false;
 
       extensions = with pkgs.vscode-extensions; [
           bbenoist.nix
