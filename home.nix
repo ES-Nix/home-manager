@@ -107,13 +107,13 @@
 #    shellcheck
 #
 #    fontconfig
-#    fira
-#    source-sans
-#    aurulent-sans
-#    lato
-#    liberation_ttf
-#    montserrat
-#    (nerdfonts.override { fonts = [ "FiraCode"]; })
+    fira
+    source-sans
+    aurulent-sans
+    lato
+    liberation_ttf
+    montserrat
+    (nerdfonts.override { fonts = [ "FiraCode"]; })
 #
 #    zsh-nix-shell
 #    zsh-powerlevel10k
