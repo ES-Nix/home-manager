@@ -230,7 +230,7 @@
 
   programs.bash = {
     enable = true;
-    bashrcExtra = "echo foo-bar";
+    # bashrcExtra = "echo foo-bar";
   };
 
   # TODO: documentar e testar
