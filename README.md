@@ -63,7 +63,7 @@ github:NixOS/nixpkgs/b7ce17b1ebf600a72178f6302c77b6382d09323f#{nix,home-manager,
 --command \
 sh \
 -c \
-'nix profile list | xargs -r nix profile remove 0; export NIXPKGS_ALLOW_UNFREE=1; home-manager switch --impure -b backup'
+'nix profile list | xargs -r nix profile remove 0; export NIXPKGS_ALLOW_UNFREE=1; home-manager switch --impure -b backuphm'
 
 
 # nix shell github:NixOS/nixpkgs/5dc2630125007bc3d08381aebbf09ea99ff4e747#{nix,home-manager} --command sh -c 'nix profile remove 0 && home-manager switch'
@@ -73,14 +73,63 @@ sh \
 
 # export NIXPKGS_ALLOW_UNFREE=1; $(nix build --impure --print-out-paths "${DESTINATION_FOLDER}"#homeConfigurations.$USER.activationPackage)/activate
 
-echo /home/$USER/.nix-profile/bin/zsh | sudo tee -a /etc/shells
-sudo usermod -s /home/$USER/.nix-profile/bin/zsh $USER
+TARGET_SHELL='zsh'
+echo /home/"$USER"/.nix-profile/bin/"$TARGET_SHELL" | sudo tee -a /etc/shells
+sudo usermod -s /home/"$USER"/.nix-profile/bin/"$TARGET_SHELL" "$USER"
+
+TARGET_SHELL='bash'
+echo /home/"$USER"/.nix-profile/bin/"$TARGET_SHELL" | sudo tee -a /etc/shells
+sudo usermod -s /home/"$USER"/.nix-profile/bin/"$TARGET_SHELL" "$USER"
+
+# sudo usermod -s /bin/bash "$USER"
 ```
+
+> The chsh command only lets you change your login shell from a shell that's 
+> listed in /etc/shells, to a shell that's listed in /etc/shells. This is a 
+> security and safety feature: if an account has a restricted shell 
+> (not listed in /etc/shells), they can't upgrade their access by switching to
+> another shell; and a user can't lock themselves out by switching to a shell 
+> that they can't change from. The root user is of course exempt from this restriction.
+
+Refs.:
+- https://unix.stackexchange.com/a/260661
+
+
+```bash
+for filename in .*.backuphm; do cp -fv "$filename" "${filename%.*}"; done
+
+
+find -L $HOME -maxdepth 1 -type l -exec rm -v {} \;
+
+sudo sed -i '\#/home/'"$USER"'/.nix-profile/bin/#d' /etc/shells
+
+sed \
+'/# It was inserted by the get-nix installer/,/# End of code inserted by the get-nix installer/d' \
+~/.$(basename $SHELL)rc
+```
+Refs.:
+- https://stackoverflow.com/a/27658717
+- https://www.redhat.com/sysadmin/bash-scripting-loops
+- https://unix.stackexchange.com/a/49470
+- https://stackoverflow.com/a/1797967
+- https://backreference.org/2010/02/20/using-different-delimiters-in-sed/index.html
+- https://unix.stackexchange.com/a/494436
+
+
+
+Trick:
+```bash
+cat /etc/passwd | grep $(cd; pwd)
+```
+
 
 ```bash
 echo /home/$USER/.nix-profile/bin/zsh | sudo tee -a /etc/shells
 sudo usermod -s /home/$USER/.nix-profile/bin/zsh $USER
 ```
+Refs.:
+- https://unix.stackexchange.com/a/226442
+
 
 ```bash
 #curl -L https://hydra.nixos.org/build/"${BUILD_ID}"/download/1/nix > nix \
