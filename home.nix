@@ -190,35 +190,6 @@
                             # android_sdk.accept_license = true;
   };
 
-  # https://beb.ninja/post/installing-podman/
-  home.file."registries.conf" = {
-    target = ".config/containers/registries.conf";
-    text = ''
-      [registries.search]
-      registries = ['docker.io', 'registry.gitlab.com']
-    '';
-  };
-
-  home.file."policy.json" = {
-    target = ".config/containers/policy.json";
-    text = ''
-      {
-          "default": [
-              {
-                 "type": "insecureAcceptAnything"
-              }
-          ],
-          "transports":
-            {
-               "docker-daemon":
-                  {
-                     "": [{"type":"insecureAcceptAnything"}]
-                  }
-            }
-      }
-    '';
-  };
-
   # Broken!
   # services.docker.enable = true;
   # pkgs.lib.fileSystems."/".neededForBoot = true;
@@ -1343,38 +1314,38 @@
 #      enable = true;
 #      package = pkgs.vscode;
 #  };
-  programs.vscode = {
-      enable = true;
-      package = pkgs.vscode;
-       # TODO:
-       # https://www.reddit.com/r/NixOS/comments/ybb08b/if_i_manage_visual_studio_code_packages_via_home/
-       # extensions.autoCheckUpdates = false;
-       # extensions.autoUpdate = false;
-
-      extensions = with pkgs.vscode-extensions; [
-          bbenoist.nix
-          yzhang.markdown-all-in-one
-          github.vscode-pull-request-github
-          ms-vscode.makefile-tools
-          ms-vsliveshare.vsliveshare
-          streetsidesoftware.code-spell-checker
-          eamodio.gitlens
-          dart-code.dart-code
-          dart-code.flutter
-          dbaeumer.vscode-eslint
-          prisma.prisma
-          yzhang.markdown-all-in-one
-          redhat.vscode-yaml
-          firefox-devtools.vscode-firefox-debug
-          apollographql.vscode-apollo
-          bierner.markdown-mermaid
-          bradlc.vscode-tailwindcss
-          donjayamanne.githistory
-      ];
-      userSettings = {
-          "terminal.integrated.fontFamily" = "Hack";
-      };
-  };
+#  programs.vscode = {
+#      enable = true;
+#      package = pkgs.vscode;
+#       # TODO:
+#       # https://www.reddit.com/r/NixOS/comments/ybb08b/if_i_manage_visual_studio_code_packages_via_home/
+#       # extensions.autoCheckUpdates = false;
+#       # extensions.autoUpdate = false;
+#
+#      extensions = with pkgs.vscode-extensions; [
+#          bbenoist.nix
+#          yzhang.markdown-all-in-one
+#          github.vscode-pull-request-github
+#          ms-vscode.makefile-tools
+#          ms-vsliveshare.vsliveshare
+#          streetsidesoftware.code-spell-checker
+#          eamodio.gitlens
+#          dart-code.dart-code
+#          dart-code.flutter
+#          dbaeumer.vscode-eslint
+#          prisma.prisma
+#          yzhang.markdown-all-in-one
+#          redhat.vscode-yaml
+#          firefox-devtools.vscode-firefox-debug
+#          apollographql.vscode-apollo
+#          bierner.markdown-mermaid
+#          bradlc.vscode-tailwindcss
+#          donjayamanne.githistory
+#      ];
+#      userSettings = {
+#          "terminal.integrated.fontFamily" = "Hack";
+#      };
+#  };
 
 #  programs.chromium = {
 #    enable = true;
