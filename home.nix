@@ -1333,42 +1333,42 @@
   };
 
 
-  programs.vscode = {
-      enable = true;
-      package = pkgs.vscode;
-  };
 #  programs.vscode = {
 #      enable = true;
 #      package = pkgs.vscode;
-      # TODO:
-      # https://www.reddit.com/r/NixOS/comments/ybb08b/if_i_manage_visual_studio_code_packages_via_home/
-      # extensions.autoCheckUpdates = false;
-      # extensions.autoUpdate = false;
-
-#      extensions = with pkgs.vscode-extensions; [
-#          bbenoist.nix
-#          yzhang.markdown-all-in-one
-#          github.vscode-pull-request-github
-#          ms-vscode.makefile-tools
-#          ms-vsliveshare.vsliveshare
-#          streetsidesoftware.code-spell-checker
-#          eamodio.gitlens
-#          dart-code.dart-code
-#          dart-code.flutter
-#          dbaeumer.vscode-eslint
-#          prisma.prisma
-#          yzhang.markdown-all-in-one
-#          redhat.vscode-yaml
-#          firefox-devtools.vscode-firefox-debug
-#          apollographql.vscode-apollo
-#          bierner.markdown-mermaid
-#          bradlc.vscode-tailwindcss
-#          donjayamanne.githistory
-#      ];
-#      userSettings = {
-#          "terminal.integrated.fontFamily" = "Hack";
-#      };
 #  };
+  programs.vscode = {
+      enable = true;
+      package = pkgs.vscode;
+       # TODO:
+       # https://www.reddit.com/r/NixOS/comments/ybb08b/if_i_manage_visual_studio_code_packages_via_home/
+       extensions.autoCheckUpdates = false;
+       extensions.autoUpdate = false;
+
+      extensions = with pkgs.vscode-extensions; [
+          bbenoist.nix
+          yzhang.markdown-all-in-one
+          github.vscode-pull-request-github
+          ms-vscode.makefile-tools
+          ms-vsliveshare.vsliveshare
+          streetsidesoftware.code-spell-checker
+          eamodio.gitlens
+          dart-code.dart-code
+          dart-code.flutter
+          dbaeumer.vscode-eslint
+          prisma.prisma
+          yzhang.markdown-all-in-one
+          redhat.vscode-yaml
+          firefox-devtools.vscode-firefox-debug
+          apollographql.vscode-apollo
+          bierner.markdown-mermaid
+          bradlc.vscode-tailwindcss
+          donjayamanne.githistory
+      ];
+      userSettings = {
+          "terminal.integrated.fontFamily" = "Hack";
+      };
+  };
 
 #  programs.chromium = {
 #    enable = true;

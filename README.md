@@ -48,7 +48,7 @@ github:NixOS/nixpkgs/b7ce17b1ebf600a72178f6302c77b6382d09323f#{nix,home-manager}
 --command \
 sh \
 -c \
-'nix profile remove 0 && home-manager switch -b backup'
+'nix profile remove 0 && export NIXPKGS_ALLOW_UNFREE=1; home-manager switch --impure -b backup'
 
 
 # nix shell github:NixOS/nixpkgs/5dc2630125007bc3d08381aebbf09ea99ff4e747#{nix,home-manager} --command sh -c 'nix profile remove 0 && home-manager switch'
