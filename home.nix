@@ -340,6 +340,12 @@
       };
     };
 
+   programs.sessionVariables = {
+     # A_B_C = "a-b-c";
+     FONTCONFIG_FILE = "${pkgs.fontconfig.out}/etc/fonts/fonts.conf";
+     FONTCONFIG_PATH = "${pkgs.fontconfig.out}/etc/fonts/";
+   };
+
   programs.starship = {
     enable = true;
     enableZshIntegration = true;
