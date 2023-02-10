@@ -27,7 +27,7 @@
     spotify
     tdesktop
     vlc
-    vscodium
+    # vscodium
     blender
     google-chrome
     virt-manager
