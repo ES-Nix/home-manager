@@ -20,16 +20,26 @@ Enabling flakes and some other stuff:
 command -v curl || (command -v apt && sudo apt-get update && sudo apt-get install -y curl)
 command -v git || (command -v apt && sudo apt-get update && sudo apt-get install -y git)
 
-NIX_RELEASE_VERSION=2.10.2 \
-&& curl -L https://releases.nixos.org/nix/nix-"${NIX_RELEASE_VERSION}"/install | sh -s -- --no-daemon
+#NIX_RELEASE_VERSION=2.10.2 \
+#&& curl -L https://releases.nixos.org/nix/nix-"${NIX_RELEASE_VERSION}"/install | sh -s -- --no-daemon
+#
+#. "$HOME"/.nix-profile/etc/profile.d/nix.sh
+#nix --version
+#
+#
+#
+#export NIX_CONFIG='extra-experimental-features = nix-command flakes'
 
-. "$HOME"/.nix-profile/etc/profile.d/nix.sh
-nix --version
-
-
-
-export NIX_CONFIG='extra-experimental-features = nix-command flakes'
-
+test -d /nix || (sudo mkdir -m 0755 /nix && sudo -k chown "$USER": /nix); \
+test $(stat -c %a /nix) -eq 0755 || sudo -kv chmod 0755 /nix; \
+BASE_URL='https://raw.githubusercontent.com/ES-Nix/get-nix/' \
+&& SHA256=5443257f9e3ac31c5f0da60332d7c5bebfab1cdf \
+&& NIX_RELEASE_VERSION='2.10.2' \
+&& curl -fsSL "${BASE_URL}""$SHA256"/get-nix.sh | sh -s -- ${NIX_RELEASE_VERSION} \
+&& . "$HOME"/.nix-profile/etc/profile.d/nix.sh \
+&& . ~/."$(ps -ocomm= -q $$)"rc \
+&& export TMPDIR=/tmp \
+&& nix flake --version
 
 DESTINATION_FOLDER="$HOME/.config/nixpkgs" \
 && rm -fr "${DESTINATION_FOLDER}" \
@@ -48,7 +58,7 @@ github:NixOS/nixpkgs/b7ce17b1ebf600a72178f6302c77b6382d09323f#{nix,home-manager}
 --command \
 sh \
 -c \
-'nix profile remove 0 && export NIXPKGS_ALLOW_UNFREE=1; home-manager switch --impure -b backup  '
+'nix profile remove 0 && export NIXPKGS_ALLOW_UNFREE=1; home-manager switch --impure -b backup'
 
 
 # nix shell github:NixOS/nixpkgs/5dc2630125007bc3d08381aebbf09ea99ff4e747#{nix,home-manager} --command sh -c 'nix profile remove 0 && home-manager switch'

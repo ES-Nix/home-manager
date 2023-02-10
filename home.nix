@@ -140,8 +140,8 @@
 #    btop
 #    htop
 #    asciinema
-#    git
-#    openssh
+    git
+    openssh
 #    # sshfs?
 
 #    #podman
