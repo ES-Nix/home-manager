@@ -20,15 +20,6 @@ Enabling flakes and some other stuff:
 command -v curl || (command -v apt && sudo apt-get update && sudo apt-get install -y curl)
 command -v git || (command -v apt && sudo apt-get update && sudo apt-get install -y git)
 
-#NIX_RELEASE_VERSION=2.10.2 \
-#&& curl -L https://releases.nixos.org/nix/nix-"${NIX_RELEASE_VERSION}"/install | sh -s -- --no-daemon
-#
-#. "$HOME"/.nix-profile/etc/profile.d/nix.sh
-#nix --version
-#
-#
-#
-#export NIX_CONFIG='extra-experimental-features = nix-command flakes'
 
 test -d /nix || (sudo mkdir -m 0755 /nix && sudo -k chown "$USER": /nix); \
 test $(stat -c %a /nix) -eq 0755 || sudo -kv chmod 0755 /nix; \
@@ -48,14 +39,10 @@ DESTINATION_FOLDER="$HOME/.config/nixpkgs" \
 && nix flake clone github:ES-Nix/home-manager --dest "${DESTINATION_FOLDER}"
 
 
-# nix shell nixpkgs#{nix,home-manager} --command sh -c 'nix profile remove 0 && home-manager switch'
-# nix shell github:NixOS/nixpkgs/release-22.11#{nix,home-manager} --command sh -c 'nix profile remove 0 && home-manager switch'
-# nix shell github:NixOS/nixpkgs/release-22.11#{nix,home-manager} --command sh -c 'nix profile remove 0 && home-manager switch'
-
 # Not so sure about it, seems like hacky
-git apply removes-nix.patch \
-&& nix build --impure --print-out-paths --no-link .#homeConfigurations.$USER.activationPackage \
-&& git apply adds-nix.patch
+#git apply removes-nix.patch \
+#&& nix build --impure --print-out-paths --no-link .#homeConfigurations.$USER.activationPackage \
+#&& git apply adds-nix.patch
 
 nix \
 shell \
@@ -65,16 +52,13 @@ sh \
 -c \
 'nix profile list | xargs -r nix profile remove 0; export NIXPKGS_ALLOW_UNFREE=1; home-manager switch -b backuphm --impure'
 
-#TARGET_SHELL='zsh'
-#echo /home/"$USER"/.nix-profile/bin/"$TARGET_SHELL" | sudo tee -a /etc/shells
-#sudo usermod -s /home/"$USER"/.nix-profile/bin/"$TARGET_SHELL" "$USER"
-
-TARGET_SHELL='bash'
+TARGET_SHELL='zsh'
 echo /home/"$USER"/.nix-profile/bin/"$TARGET_SHELL" | sudo tee -a /etc/shells
 sudo usermod -s /home/"$USER"/.nix-profile/bin/"$TARGET_SHELL" "$USER"
 
-# To revert to system shell
-# sudo usermod -s /bin/bash "$USER"
+#TARGET_SHELL='bash'
+#echo /home/"$USER"/.nix-profile/bin/"$TARGET_SHELL" | sudo tee -a /etc/shells
+#sudo usermod -s /home/"$USER"/.nix-profile/bin/"$TARGET_SHELL" "$USER"
 ```
 
 > The chsh command only lets you change your login shell from a shell that's 
