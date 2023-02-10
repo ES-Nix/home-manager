@@ -58,7 +58,7 @@
 
     #
     # nix
-    nixVersions.nix_2_10
+    # nixVersions.nix_2_10
 
 #    pciutils # lspci and others
 #    coreboot-utils

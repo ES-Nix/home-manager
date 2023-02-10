@@ -1,0 +1,13 @@
+diff --git a/home.nix b/home.nix
+index 3f3d91c..531393a 100644
+--- a/home.nix
++++ b/home.nix
+@@ -58,7 +58,7 @@
+ 
+     #
+     # nix
+-    # nixVersions.nix_2_10
++    nixVersions.nix_2_10
+ 
+ #    pciutils # lspci and others
+ #    coreboot-utils
