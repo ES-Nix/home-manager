@@ -9,26 +9,29 @@
 
   home.packages = with pkgs; [
     # Graphical packages
-    #brave
-    #dbeaver
-    #discord
-    #gimp
-    #gitkraken
-    #inkscape
-    #insomnia
-    #postman
-    #jetbrains.pycharm-community
-    #keepassxc
-    #kolourpaint
-    #libreoffice
-    #obsidian
-    #okular
-    #peek
-    #spotify
-    #tdesktop
-    #vlc
-    #vscodium
-    #blender
+    brave
+    dbeaver
+    discord
+    gimp
+    gitkraken
+    inkscape
+    insomnia
+    postman
+    jetbrains.pycharm-community
+    keepassxc
+    kolourpaint
+    libreoffice
+    obsidian
+    okular
+    peek
+    spotify
+    tdesktop
+    vlc
+    vscodium
+    blender
+    google-chrome
+    virt-manager
+    anydesk
 
     # sudo $(which lshw) -C display
     # sudo dmesg | grep drm
@@ -57,49 +60,50 @@
     # nix
     nixVersions.nix_2_10
 
-#    pciutils # lspci and others
-#    coreboot-utils
+    pciutils # lspci and others
+    coreboot-utils
      ## TODO: testar com o zsh
 #    bashInteractive # https://www.reddit.com/r/NixOS/comments/zx4kmh/alpinewsl_home_manager_bash_issue/
-#    coreutils
-#    binutils
-#    utillinux
-#    glibc.bin
-#    patchelf
-#    gparted
-#    # glxinfo
-#    file
-#    findutils
-#    gnugrep
-#    gnumake
-#    gnused
-#    gawk
-#    hexdump
-#    which
-#    xz
-#    exfat
-#    procps
-#    curl
-#    wget
-#    lsof
-#    tree
-#    killall
-#    nmap
-#    netcat
-#    tmate
-#    strace
-#    # ptrace
-#    traceroute
-#    man
-#    man-db
-#    (aspellWithDicts(d: with d; [ de en pt_BR ])) # nix repl --expr 'import <nixpkgs> {}' <<<'builtins.attrNames aspellDicts' | tr ' ' '\n'
-#    gnome.simple-scan
-#    imagemagick
-#    nix-prefetch-git
-#    nixfmt
-#    hydra-check
-#    nixos-option
-#    shellcheck
+    coreutils
+    binutils
+    utillinux
+    xorg.xkill
+    glibc.bin
+    patchelf
+    gparted
+    # glxinfo
+    file
+    findutils
+    gnugrep
+    gnumake
+    gnused
+    gawk
+    hexdump
+    which
+    xz
+    exfat
+    procps
+    curl
+    wget
+    lsof
+    tree
+    killall
+    nmap
+    netcat
+    tmate
+    strace
+    # ptrace
+    traceroute
+    man
+    man-db
+    (aspellWithDicts(d: with d; [ de en pt_BR ])) # nix repl --expr 'import <nixpkgs> {}' <<<'builtins.attrNames aspellDicts' | tr ' ' '\n'
+    gnome.simple-scan
+    imagemagick
+    nix-prefetch-git
+    nixfmt
+    hydra-check
+    nixos-option
+    shellcheck
 #
 #    fontconfig
 #    fira
@@ -123,21 +127,23 @@
 ##    rustc
 ##    python3Full
 ##    julia-bin
-#
-#    graphviz # dot command comes from here
-#    jq
-#    unixtools.xxd
-#
-#    gzip
-#    # unrar
-#    unzip
-#
-#    btop
-#    htop
-#    asciinema
-#    git
-#    openssh
-#
+
+    graphviz # dot command comes from here
+    jq
+    unixtools.xxd
+
+    gzip
+    # unrar
+    unzip
+    gnutar
+
+    btop
+    htop
+    asciinema
+    git
+    openssh
+    # sshfs?
+
 #    #podman
     #runc
     #skopeo
