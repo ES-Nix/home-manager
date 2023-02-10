@@ -57,7 +57,7 @@
 
     bashInteractive
 
-    #
+    # Just enabling it is ok, and mith be better
     # nix
     # nixVersions.nix_2_10
 
@@ -360,10 +360,10 @@
       };
     };
 
-#  programs.starship = {
-#    enable = true;
-#    enableZshIntegration = true;
-#  };
+  programs.starship = {
+    enable = true;
+    enableZshIntegration = true;
+  };
 
 #  programs.starship = {
 #    enable = true;
