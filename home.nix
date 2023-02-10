@@ -55,6 +55,7 @@
     ponysay
     cmatrix
 
+    bashInteractive
 
     #
     # nix

@@ -83,6 +83,22 @@ sudo usermod -s /home/$USER/.nix-profile/bin/zsh $USER
 ```
 
 ```bash
+export NIX_CONFIG='extra-experimental-features = nix-command flakes'
+
+BUILD_ID='183946375'
+curl -L https://hydra.nixos.org/build/"${BUILD_ID}"/download/1/nix > nix \
+&& chmod +x nix \
+&& ./nix flakes --version
+
+mkdir -pv "$HOME"/.local/bin \
+&& export PATH="$HOME"/.local/bin:"$PATH" \
+&& curl -L https://hydra.nixos.org/build/207340490/download/1/nix > nix \
+&& mv nix "$HOME"/.local/bin \
+&& chmod +x "$HOME"/.local/bin/nix
+
+```
+
+```bash
 DESTINATION_FOLDER="$HOME/.config/nixpkgs"
 
 rm -rfv "$HOME"/{.nix-channels,.nix-defexpr,.nix-profile,.config/nixpkgs,.cache/nix} "$DESTINATION_FOLDER"
