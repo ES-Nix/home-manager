@@ -212,6 +212,11 @@
   programs.bash = {
     enable = true;
     # bashrcExtra = "echo foo-bar";
+    sessionVariables = {
+      A_B_C = "a-b-c";
+      FONTCONFIG_FILE = "${pkgs.fontconfig.out}/etc/fonts/fonts.conf";
+      FONTCONFIG_PATH = "${pkgs.fontconfig.out}/etc/fonts/";
+    };
   };
 
   # TODO: documentar e testar
@@ -339,12 +344,6 @@
         # theme = "fishy";
       };
     };
-
-   programs.sessionVariables = {
-     # A_B_C = "a-b-c";
-     FONTCONFIG_FILE = "${pkgs.fontconfig.out}/etc/fonts/fonts.conf";
-     FONTCONFIG_PATH = "${pkgs.fontconfig.out}/etc/fonts/";
-   };
 
   programs.starship = {
     enable = true;
