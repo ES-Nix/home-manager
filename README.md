@@ -32,28 +32,34 @@ BASE_URL='https://raw.githubusercontent.com/ES-Nix/get-nix/' \
 && export TMPDIR=/tmp \
 && nix flake --version
 
-# command -v git || (command -v apt && sudo apt-get update && sudo apt-get install -y git)
-nix profile install nixpkgs#git
-
+# --ignore-environment
+nix \
+shell \
+github:NixOS/nixpkgs/b7ce17b1ebf600a72178f6302c77b6382d09323f#{git,bashInteractive,coreutils} \
+--command \
+sh \
+-c \
+'
 DESTINATION_FOLDER="$HOME/.config/nixpkgs" \
 && rm -fr "${DESTINATION_FOLDER}" \
 && mkdir -p "${DESTINATION_FOLDER}" \
 && cd "${DESTINATION_FOLDER}" \
 && nix flake clone github:ES-Nix/home-manager --dest "${DESTINATION_FOLDER}"
-
+'
 
 # Not so sure about it, seems like hacky
 #git apply removes-nix.patch \
 #&& nix build --impure --print-out-paths --no-link .#homeConfigurations.$USER.activationPackage \
 #&& git apply adds-nix.patch
 
-nix \
+cd ~/.config/nixpkgs \
+&& nix \
 shell \
-github:NixOS/nixpkgs/b7ce17b1ebf600a72178f6302c77b6382d09323f#{nix,home-manager,busybox} \
+github:NixOS/nixpkgs/b7ce17b1ebf600a72178f6302c77b6382d09323f#{git,nix,home-manager,busybox} \
 --command \
 sh \
 -c \
-'nix profile list | xargs -r nix profile remove ".*"; export NIXPKGS_ALLOW_UNFREE=1; home-manager switch -b backuphm --impure'
+'nix profile remove ".*"; export NIXPKGS_ALLOW_UNFREE=1; home-manager switch -b backuphm --impure'
 
 TARGET_SHELL='zsh'
 echo /home/"$USER"/.nix-profile/bin/"$TARGET_SHELL" | sudo tee -a /etc/shells
