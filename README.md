@@ -32,6 +32,9 @@ BASE_URL='https://raw.githubusercontent.com/ES-Nix/get-nix/' \
 && export TMPDIR=/tmp \
 && nix flake --version
 
+# command -v git || (command -v apt && sudo apt-get update && sudo apt-get install -y git)
+nix profile install nixpkgs#git
+
 DESTINATION_FOLDER="$HOME/.config/nixpkgs" \
 && rm -fr "${DESTINATION_FOLDER}" \
 && mkdir -p "${DESTINATION_FOLDER}" \
@@ -50,7 +53,7 @@ github:NixOS/nixpkgs/b7ce17b1ebf600a72178f6302c77b6382d09323f#{nix,home-manager,
 --command \
 sh \
 -c \
-'nix profile list | xargs -r nix profile remove 0; export NIXPKGS_ALLOW_UNFREE=1; home-manager switch -b backuphm --impure'
+'nix profile list | xargs -r nix profile remove ".*"; export NIXPKGS_ALLOW_UNFREE=1; home-manager switch -b backuphm --impure'
 
 TARGET_SHELL='zsh'
 echo /home/"$USER"/.nix-profile/bin/"$TARGET_SHELL" | sudo tee -a /etc/shells
@@ -401,3 +404,6 @@ home-manager switch --flake ~/.config/nixpkgs
 
 - https://github.com/divnix/digga/issues/83#issuecomment-758300955
 - https://github.com/divnix/digga/pull/93#issuecomment-761377665
+
+
+

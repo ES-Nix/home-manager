@@ -16,8 +16,8 @@
   outputs = { nixpkgs, home-manager, ... }:
     let
       system = "x86_64-linux";
-      # username = "vagrant";
-      username = "ubuntu";
+      username = "vagrant";
+      # username = "ubuntu";
       # username = "pedro";
       pkgs = nixpkgs.legacyPackages.${system};
     in {

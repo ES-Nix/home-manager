@@ -10,19 +10,19 @@
   home.packages = with pkgs; [
     # Graphical packages
     #brave
-    dbeaver
+    #dbeaver
     #discord
     #gimp
     #gitkraken
     #inkscape
     #insomnia
     #postman
-    jetbrains.pycharm-community
+    #jetbrains.pycharm-community
     #keepassxc
     #kolourpaint
     #libreoffice
     #obsidian
-    okular
+    #okular
     #peek
     #spotify
     #tdesktop
@@ -113,7 +113,7 @@
     lato
     liberation_ttf
     montserrat
-    (nerdfonts.override { fonts = [ "FiraCode"]; })
+    #(nerdfonts.override { fonts = [ "FiraCode"]; })
 
     zsh-nix-shell
     zsh-powerlevel10k
