@@ -84,6 +84,10 @@ sudo -k $(nix build --no-link --print-out-paths nixpkgs#shadow.out)/bin/usermod 
 Refs.:
 - https://unix.stackexchange.com/a/260661
 
+```bash
+echo '\u276F \ue0b0 \u00b1 \ue0a0 \u27a6 \u2718 \u26a1 \u2699'
+```
+
 
 ```bash
 # TODO: this is not recursive, files like 
