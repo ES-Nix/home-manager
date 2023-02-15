@@ -69,7 +69,7 @@
 #    binutils
 #    utillinux
 #    xorg.xkill
-#    glibc.bin
+    glibc.bin
 #    patchelf
 #    gparted
 #    # glxinfo
