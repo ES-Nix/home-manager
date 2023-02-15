@@ -257,8 +257,8 @@
          # PROMPT="|%F{153}%n@%m%f|%F{174}%1~%f> ";
 
          # fc-match list
-         # FONTCONFIG_FILE = "${pkgs.fontconfig.out}/etc/fonts/fonts.conf";
-         # FONTCONFIG_PATH = "${pkgs.fontconfig.out}/etc/fonts/";
+         FONTCONFIG_FILE = "${pkgs.fontconfig.out}/etc/fonts/fonts.conf";
+         FONTCONFIG_PATH = "${pkgs.fontconfig.out}/etc/fonts/";
        };
 
       historySubstringSearch.enable = true;
