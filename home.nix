@@ -55,7 +55,7 @@
 #    ponysay
 #    cmatrix
 
-    bashInteractive
+#    bashInteractive
 
     # Just enabling it is ok, and mith be better
     # nix

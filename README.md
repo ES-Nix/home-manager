@@ -90,6 +90,14 @@ echo '\u276F \ue0b0 \u00b1 \ue0a0 \u27a6 \u2718 \u26a1 \u2699'
 
 
 ```bash
+DESTINATION_FOLDER="$HOME/.config/nixpkgs"
+
+rm -rfv "$HOME"/{.nix-channels,.nix-defexpr,.nix-profile,.config/nixpkgs,.cache/nix} "$DESTINATION_FOLDER"
+
+sudo rm -fr /nix
+```
+
+```bash
 # TODO: this is not recursive, files like 
 # $XDG_CONFIG_HOME/nix/nix.conf and/or ~/.config/nix/nix.conf and others
 # are not restored 
@@ -161,13 +169,7 @@ BUILD_ID='183946375' \
 
 ```
 
-```bash
-DESTINATION_FOLDER="$HOME/.config/nixpkgs"
 
-rm -rfv "$HOME"/{.nix-channels,.nix-defexpr,.nix-profile,.config/nixpkgs,.cache/nix} "$DESTINATION_FOLDER"
-
-sudo rm -fr /nix
-```
 
 
 > As to having nix in home-manager itself, it is not necessary and up to the end user. 
