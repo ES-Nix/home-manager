@@ -107,11 +107,11 @@
 #    shellcheck
 #
     fontconfig
-    fira
-    source-sans
-    aurulent-sans
-    lato
-    liberation_ttf
+    # fira
+    # source-sans
+    # aurulent-sans
+    # lato
+    # liberation_ttf
     montserrat
     #(nerdfonts.override { fonts = [ "FiraCode"]; })
 
