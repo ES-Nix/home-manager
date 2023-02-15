@@ -63,7 +63,11 @@ sh \
 
 TARGET_SHELL='zsh'
 echo /home/"$USER"/.nix-profile/bin/"$TARGET_SHELL" | sudo tee -a /etc/shells
-sudo usermod -s /home/"$USER"/.nix-profile/bin/"$TARGET_SHELL" "$USER"
+# sudo usermod -s /home/"$USER"/.nix-profile/bin/"$TARGET_SHELL" "$USER"
+sudo -k $(nix build --no-link --print-out-paths nixpkgs#shadow.out)/bin/usermod \
+-s \
+/home/"$USER"/.nix-profile/bin/"$TARGET_SHELL" \
+"$USER"
 
 #TARGET_SHELL='bash'
 #echo /home/"$USER"/.nix-profile/bin/"$TARGET_SHELL" | sudo tee -a /etc/shells
