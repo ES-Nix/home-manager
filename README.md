@@ -18,7 +18,7 @@ NIX_RELEASE_VERSION=2.10.2 \
 Enabling flakes and some other stuff:
 ```bash
 command -v curl || (command -v apt && sudo apt-get update && sudo apt-get install -y curl)
-command -v git || (command -v apt && sudo apt-get update && sudo apt-get install -y git)
+# command -v git || (command -v apt && sudo apt-get update && sudo apt-get install -y git)
 
 
 test -d /nix || (sudo mkdir -m 0755 /nix && sudo -k chown "$USER": /nix); \
