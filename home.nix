@@ -255,8 +255,10 @@
          # ZSH_AUTOSUGGEST_USE_ASYNC="true";
          # ZSH_AUTOSUGGEST_MANUAL_REBIND="true";
          # PROMPT="|%F{153}%n@%m%f|%F{174}%1~%f> ";
-         FONTCONFIG_FILE = "${pkgs.fontconfig.out}/etc/fonts/fonts.conf";
-         FONTCONFIG_PATH = "${pkgs.fontconfig.out}/etc/fonts/";
+
+         # fc-match list
+         # FONTCONFIG_FILE = "${pkgs.fontconfig.out}/etc/fonts/fonts.conf";
+         # FONTCONFIG_PATH = "${pkgs.fontconfig.out}/etc/fonts/";
        };
 
       historySubstringSearch.enable = true;
