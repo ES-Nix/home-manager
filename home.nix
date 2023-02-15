@@ -113,7 +113,7 @@
     # lato
     # liberation_ttf
     montserrat
-    #(nerdfonts.override { fonts = [ "FiraCode"]; })
+    (nerdfonts.override { fonts = [ "FiraCode"]; })
 
     zsh-nix-shell
     zsh-powerlevel10k
