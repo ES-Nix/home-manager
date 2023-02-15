@@ -115,10 +115,10 @@
     montserrat
     (nerdfonts.override { fonts = [ "FiraCode"]; })
 
-#    zsh-nix-shell
-#    zsh-powerlevel10k
-#    zsh-powerlevel9k
-#    zsh-syntax-highlighting
+    zsh-nix-shell
+    zsh-powerlevel10k
+    zsh-powerlevel9k
+    zsh-syntax-highlighting
     oh-my-zsh
 #    # zsh-completions-latest
 #
