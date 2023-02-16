@@ -116,7 +116,7 @@
       # fira                # Monospace
       # font-awesome
       # freefont_ttf
-      # hack-font
+      hack-font
       hasklig
       # inconsolata         # Monospace
       # lato
