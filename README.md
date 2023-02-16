@@ -135,6 +135,10 @@ cd ~/.config/nixpkgs
 git pull && home-manager switch
 ```
 
+```bash
+fc-list | cut -d '/' -f7- | wc -l
+```
+
 Trick:
 ```bash
 cat /etc/passwd | grep $(cd; pwd)
