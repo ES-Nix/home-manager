@@ -130,7 +130,10 @@ Refs.:
 - https://backreference.org/2010/02/20/using-different-delimiters-in-sed/index.html
 - https://unix.stackexchange.com/a/494436
 
-
+```bash
+cd ~/.config/nixpkgs
+git pull && home-manager switch
+```
 
 Trick:
 ```bash

@@ -112,6 +112,7 @@
     # aurulent-sans
     # lato
     # liberation_ttf
+    dejavu_fonts
     montserrat
     (nerdfonts.override { fonts = [ "FiraCode"]; })
 
