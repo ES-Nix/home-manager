@@ -110,31 +110,41 @@
       # arphic-ukai
       # arphic-uming
       # aurulent-sans
+      # comic-relief
       # corefonts           # Microsoft free fonts
       # dejavu_fonts
       # dina-font
       # fira                # Monospace
+      # fira-code
+      # fira-code-symbols
       # font-awesome
+      # font-awesome-ttf
+      # font-awesome_4
       # freefont_ttf
       # hack-font
       # hasklig
       # inconsolata         # Monospace
+      # ionicons
       # lato
       # liberation_ttf
+      # lineicons
       # montserrat
+      # mplus-outline-fonts
       # nerdfonts # Really big and now broken
+      # noto-fonts
       # noto-fonts-emoji
       # noto-fonts-extra
-      # powerline-fonts
+      powerline
+      powerline-fonts
       # source-han-sans-japanese
       # source-han-sans-korean
       # source-han-sans-simplified-chinese
       # source-han-sans-traditional-chinese
       # source-sans
       # source-sans-pro
-      # source-sans-pro
       # sudo-font
       # symbola # TODO: Was broken
+      # twemoji-color-font
       # ubuntu_font_family
       # unifont             # International languages
       # wqy_microhei
@@ -142,18 +152,22 @@
       # xkcd-font
 
       # (nerdfonts.override { fonts = [ "FiraCode"]; })
-      (
-        nerdfonts.override {
-          fonts = [
-            "AnonymousPro"
-            "FiraCode"
-            "JetBrainsMono"
-            "Hack"
-            "Ubuntu"
-            "UbuntuMono"
-          ];
-        }
-      )
+#      (
+#        nerdfonts.override {
+#          fonts = [
+#            "AnonymousPro"
+#            "DroidSansMono"
+#            "FiraCode"
+#            "JetBrainsMono"
+#            "Noto"
+#            "Terminus"
+#            "Hack"
+#            "Ubuntu"
+#            "UbuntuMono"
+#          ];
+#        }
+#      )
+
 #    zsh-nix-shell
 #    zsh-powerlevel10k
 #    zsh-powerlevel9k
