@@ -328,7 +328,7 @@
           # "thefuck"
           "tig"
           "timer"
-          "tmux"
+          # "tmux" # It needs to be installed
           "vagrant"
           "vi-mode"
           "vim-interaction"
