@@ -116,8 +116,8 @@
       # fira                # Monospace
       # font-awesome
       # freefont_ttf
-      hack-font
-      hasklig
+      # hack-font
+      # hasklig
       # inconsolata         # Monospace
       # lato
       # liberation_ttf
@@ -125,7 +125,7 @@
       # nerdfonts # Really big and now broken
       # noto-fonts-emoji
       # noto-fonts-extra
-      powerline-fonts
+      # powerline-fonts
       # source-han-sans-japanese
       # source-han-sans-korean
       # source-han-sans-simplified-chinese
@@ -142,7 +142,18 @@
       # xkcd-font
 
       # (nerdfonts.override { fonts = [ "FiraCode"]; })
-
+      (
+        nerdfonts.override {
+          fonts = [
+            "AnonymousPro"
+            "FiraCode"
+            "JetBrainsMono"
+            "Hack"
+            "Ubuntu"
+            "UbuntuMono"
+          ];
+        }
+      )
 #    zsh-nix-shell
 #    zsh-powerlevel10k
 #    zsh-powerlevel9k
