@@ -117,11 +117,12 @@
       # font-awesome
       # freefont_ttf
       # hack-font
+      hasklig
       # inconsolata         # Monospace
       # lato
       # liberation_ttf
       # montserrat
-      nerdfonts # Really big and now broken
+      # nerdfonts # Really big and now broken
       # noto-fonts-emoji
       # noto-fonts-extra
       powerline-fonts
