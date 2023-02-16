@@ -279,6 +279,7 @@
   # TODO: documentar e testar
   home.extraOutputsToInstall = [ "/share/zsh" "/share/bash" "/share/fish"
   "/share/fonts" # fc-cache -frv
+  # /etc/fonts
   ];
 
     # https://www.reddit.com/r/NixOS/comments/fenb4u/zsh_with_ohmyzsh_with_powerlevel10k_in_nix/
