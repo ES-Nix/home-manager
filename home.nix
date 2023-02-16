@@ -107,7 +107,7 @@
 #    shellcheck
 #
     fontconfig
-    # powerline-fonts
+    powerline-fonts
     # fira
     # source-sans
     # aurulent-sans
@@ -118,7 +118,7 @@
     # (nerdfonts.override { fonts = [ "FiraCode"]; })
 
 #    zsh-nix-shell
-    zsh-powerlevel10k
+#    zsh-powerlevel10k
 #    zsh-powerlevel9k
 #    zsh-syntax-highlighting
 
