@@ -107,45 +107,39 @@
 #    shellcheck
 #
     fontconfig
-    powerline-fonts
-    fira
-    # source-sans
-    # aurulent-sans
-    # lato
-    # liberation_ttf
-    # dejavu_fonts
-    # montserrat
-
-     # corefonts                 # Microsoft free fonts
-      # fira              # Monospace
-      # inconsolata               # Monospace
-      # powerline-fonts
-      # ubuntu_font_family
-      # unifont           # International languages
-
       # arphic-ukai
       # arphic-uming
-      ## corefonts # Microsoft free fonts
-      # dina-font
-      # hack-font
+      # aurulent-sans
+      # corefonts           # Microsoft free fonts
       # dejavu_fonts
+      # dina-font
+      # fira                # Monospace
       # font-awesome
       # freefont_ttf
+      # hack-font
+      # inconsolata         # Monospace
+      # lato
+      # liberation_ttf
+      # montserrat
+      nerdfonts # Really big and now broken
       # noto-fonts-emoji
       # noto-fonts-extra
-      # sudo-font
-      # source-sans-pro
+      powerline-fonts
       # source-han-sans-japanese
       # source-han-sans-korean
       # source-han-sans-simplified-chinese
       # source-han-sans-traditional-chinese
+      # source-sans
       # source-sans-pro
-      ## symbola # TODO: Was broken
+      # source-sans-pro
+      # sudo-font
+      # symbola # TODO: Was broken
       # ubuntu_font_family
-      # xkcd-font
+      # unifont             # International languages
       # wqy_microhei
       # wqy_zenhei
-      ## nerdfonts # Really big and now broken
+      # xkcd-font
+
       # (nerdfonts.override { fonts = [ "FiraCode"]; })
 
 #    zsh-nix-shell
