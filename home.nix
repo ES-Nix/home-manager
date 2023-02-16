@@ -180,6 +180,9 @@
                   system-features = [ "big-parallel" "kvm" "recursive-nix" "nixos-test" ];
                  keep-outputs = true;
                  keep-derivations = true;
+
+                 # One month: 60 * 60 * 24 * 7 * 4 = 2419200
+                 tarball-ttl = 2419200;
                 # readOnlyStore = true;
                 };
   };
