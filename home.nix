@@ -108,14 +108,45 @@
 #
     fontconfig
     powerline-fonts
-    # fira
+    fira
     # source-sans
     # aurulent-sans
     # lato
     # liberation_ttf
     # dejavu_fonts
     # montserrat
-    # (nerdfonts.override { fonts = [ "FiraCode"]; })
+
+     # corefonts                 # Microsoft free fonts
+      # fira              # Monospace
+      # inconsolata               # Monospace
+      # powerline-fonts
+      # ubuntu_font_family
+      # unifont           # International languages
+
+      # arphic-ukai
+      # arphic-uming
+      ## corefonts # Microsoft free fonts
+      # dina-font
+      # hack-font
+      # dejavu_fonts
+      # font-awesome
+      # freefont_ttf
+      # noto-fonts-emoji
+      # noto-fonts-extra
+      # sudo-font
+      # source-sans-pro
+      # source-han-sans-japanese
+      # source-han-sans-korean
+      # source-han-sans-simplified-chinese
+      # source-han-sans-traditional-chinese
+      # source-sans-pro
+      ## symbola # TODO: Was broken
+      # ubuntu_font_family
+      # xkcd-font
+      # wqy_microhei
+      # wqy_zenhei
+      ## nerdfonts # Really big and now broken
+      # (nerdfonts.override { fonts = [ "FiraCode"]; })
 
 #    zsh-nix-shell
 #    zsh-powerlevel10k
