@@ -231,7 +231,7 @@
     settings = {
                   # use-sandbox = true;
                   show-trace = true;
-                  system-features = [ "big-parallel" "kvm" "recursive-nix" "nixos-test" ];
+                 # system-features = [ "big-parallel" "kvm" "recursive-nix" "nixos-test" ];
                  keep-outputs = true;
                  keep-derivations = true;
 
