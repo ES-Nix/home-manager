@@ -17,8 +17,8 @@
     let
       system = "x86_64-linux";
       # username = "vagrant";
-      # username = "ubuntu";
-      username = "pedro";
+      username = "ubuntu";
+      # username = "pedro";
       pkgs = nixpkgs.legacyPackages.${system};
     in {
       homeConfigurations.${username} = home-manager.lib.homeManagerConfiguration {
