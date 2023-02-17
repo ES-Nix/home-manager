@@ -211,6 +211,14 @@
           "$@" | "${curl}/bin/curl" -F 'f:1=<-' ix.io
        ''
      )
+
+     (
+       writeScriptBin "gphm" ''
+        echo $(cd "$HOME/.config/nixpkgs" && git pull) \
+        && export NIXPKGS_ALLOW_UNFREE=1; \
+        home-manager switch --impure --flake "$HOME/.config/nixpkgs"
+       ''
+     )
   ];
 
   # https://github.com/nix-community/home-manager/blob/782cb855b2f23c485011a196c593e2d7e4fce746/modules/targets/generic-linux.nix
@@ -226,7 +234,6 @@
      # export NIX_CONFIG='extra-experimental-features = nix-command flakes'
      extraOptions = ''
        experimental-features = nix-command flakes
-       trusted-public-keys = fooooo
      '';
 
     settings = {
@@ -239,6 +246,8 @@
                  # One month: 60 * 60 * 24 * 7 * 4 = 2419200
                  tarball-ttl = 60 * 60 * 24 * 7 * 4;
                 # readOnlyStore = true;
+
+                  extra-trusted-public-keys = "fooooo";
                 };
   };
 
