@@ -248,6 +248,7 @@
                 # readOnlyStore = true;
 
                   # extra-trusted-public-keys = "fooooo";
+                  trusted-substituters = "fooooo";
                 };
   };
 
