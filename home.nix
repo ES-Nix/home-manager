@@ -213,7 +213,7 @@
      )
 
      (
-       writeScriptBin "gphm" ''
+       writeScriptBin "gphms" ''
         echo $(cd "$HOME/.config/nixpkgs" && git pull) \
         && export NIXPKGS_ALLOW_UNFREE=1; \
         home-manager switch --impure --flake "$HOME/.config/nixpkgs"
