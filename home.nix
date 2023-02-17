@@ -219,6 +219,12 @@
         home-manager switch --impure --flake "$HOME/.config/nixpkgs"
        ''
      )
+
+     (
+       writeScriptBin "nr" ''
+        nix repl --expr 'import <nixpkgs> {}'
+       ''
+     )
   ];
 
   # https://github.com/nix-community/home-manager/blob/782cb855b2f23c485011a196c593e2d7e4fce746/modules/targets/generic-linux.nix
@@ -247,7 +253,7 @@
                  tarball-ttl = 60 * 60 * 24 * 7 * 4;
                 # readOnlyStore = true;
 
-                  # extra-trusted-public-keys = "fooooo";
+                  # trusted-public-keys = cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY=
                   trusted-substituters = "fooooo";
                 };
   };
