@@ -247,7 +247,7 @@
                  tarball-ttl = 60 * 60 * 24 * 7 * 4;
                 # readOnlyStore = true;
 
-                  extra-trusted-public-keys = "fooooo";
+                  # extra-trusted-public-keys = "fooooo";
                 };
   };
 
