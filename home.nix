@@ -12,12 +12,12 @@
     #brave
     #dbeaver
     #discord
-    #gimp
+    gimp
     #gitkraken
     #inkscape
     #insomnia
     #postman
-    #jetbrains.pycharm-community
+    jetbrains.pycharm-community
     #keepassxc
     #kolourpaint
     #libreoffice
@@ -57,7 +57,7 @@
 
 #    bashInteractive
 
-    # Just enabling it is ok, and mith be better
+    # Just enabling it is ok, and might be better
     # nix
     # nixVersions.nix_2_10
 
