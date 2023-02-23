@@ -51,6 +51,9 @@
     # cudatoolkit.lib
     # mpi
 
+    # 
+    steam-run
+
     xorg.xclock
     hello
 #    figlet
@@ -120,9 +123,7 @@
       # fira                # Monospace
       # fira-code
       # fira-code-symbols
-      # font-awesome
-      # font-awesome-ttf
-      # font-awesome_4
+      # font-awesome # font-awesome-ttf, font-awesome_4
       # freefont_ttf
       # hack-font
       # hasklig
@@ -133,7 +134,7 @@
       # lineicons
       # montserrat
       # mplus-outline-fonts
-      # nerdfonts # Really big and now broken
+      nerdfonts # Really big, but only this font fixed some issues with starship
       # noto-fonts
       # noto-fonts-emoji
       # noto-fonts-extra
@@ -187,7 +188,7 @@
 ##    julia-bin
 
 #    graphviz # dot command comes from here
-#    jq
+    jq
 #    unixtools.xxd
 #
 #    gzip
@@ -326,6 +327,17 @@
 
       # initExtraBeforeCompInit = ''eval "$(direnv hook zsh)"'';
       autocd = true;
+
+
+        shellAliases = {
+          l = "ls -al";
+
+          #
+          nb = "nix build";
+          npi = "nix profile install nixpkgs#";
+          ns = "nix shell";
+          nr = "nix repl --expr 'import <nixpkgs> {}'";
+        };
 
        # > closed and reopened the terminal. Then it worked.
        # https://discourse.nixos.org/t/home-manager-doesnt-seem-to-recognize-sessionvariables/8488/8
