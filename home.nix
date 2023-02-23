@@ -32,6 +32,9 @@
     #google-chrome
     #virt-manager
     #anydesk
+    
+    # Fun
+    # qbittorrent
 
     # sudo $(which lshw) -C display
     # sudo dmesg | grep drm
