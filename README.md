@@ -421,6 +421,9 @@ home-manager switch --flake ~/.config/nixpkgs
 - https://eevie.ro/posts/2022-01-24-how-i-nix.html
 
 
+Multarchiteture (TODO, join more lins here):
+- https://www.bekk.christmas/post/2021/16/dotfiles-with-nix-and-home-manager
+
 ### security
 
 - https://bugs.launchpad.net/calibre/+bug/885027
